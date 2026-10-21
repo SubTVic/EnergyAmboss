@@ -10,7 +10,9 @@ Eine Web-App mit einer Startseite und fünf klickbaren Prototypen, die dasselbe 
 | `/d` | **D** Projekt-Planspiel | Wargaming (Militär) | Spielen |
 | `/e` | **E** Prognose-Liga | Superforecasting | Prognostizieren |
 
-Bewertet werden soll die **Idee**, nicht die Oberfläche: skizzenhafter Look (PaperCSS), Graustufen, Farbe nur mit Bedeutung (grün belegt, orange offen, rot gebrochen, blau bereit), auf jeder Seite das Banner „Prototyp: Inhalte fiktiv“. Alle Zahlen, Wahrscheinlichkeiten und Projektdaten sind fiktiv; nur Kostenarten und Abläufe stammen aus dem Interview. Keine Rechtsberatung.
+Bewertet werden soll die **Idee**, nicht die Oberfläche: skizzenhafter Look (PaperCSS-Rahmen und -Schatten, aber mit ruhiger Systemschrift statt der Handschrift-Schriften des Frameworks), Graustufen, Farbe nur mit Bedeutung (grün belegt, orange offen, rot gebrochen, blau bereit), auf jeder Seite das Banner „Prototyp: Inhalte fiktiv“. Alle Zahlen, Wahrscheinlichkeiten und Projektdaten sind fiktiv; nur Kostenarten und Abläufe stammen aus dem Interview. Keine Rechtsberatung.
+
+Es werden keine externen Schriften geladen (ein Vite-Plugin in `vite.config.ts` entfernt den Google-Fonts-Import aus PaperCSS), die App fragt also keinen Google-Server an. Die Schrift stellt `--font-ui` in `src/shared/styles.css` ein.
 
 Die Spezifikation liegt in `docs/`: [Konzept](docs/01-konzept-fuenf-prototyp-versionen.md) (was und warum) und [Technischer Umsetzungsplan](docs/02-technischer-umsetzungsplan.md) (wie). Bei Widersprüchen gilt der Umsetzungsplan.
 
