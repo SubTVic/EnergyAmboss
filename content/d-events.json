@@ -1,0 +1,182 @@
+[
+  {
+    "id": "ev-f1-anschluss",
+    "title": "Genehmigung da, Anschluss weg",
+    "text": "Die Genehmigung liegt vor, aber der Netzanschluss klappt nicht. Ohne belastbare Zusage bricht das Projekt an der Netzseite. Der Verlust ist hoch.",
+    "caseId": "F1",
+    "when": [{ "permit": "erteilt" }, { "grid": ["keine", "angefragt", "vage"] }],
+    "weight": 12,
+    "effects": [{ "grid": "absage" }, { "budget": -300000 }, { "contacts": -1 }],
+    "causedBy": "netzanfrage",
+    "knowledgeIds": ["n-netzzusage", "n-kapazitaet"]
+  },
+  {
+    "id": "ev-konkurrent",
+    "title": "Konkurrent bietet mehr Pacht",
+    "text": "Ein Konkurrent bietet einem Eigentümer mehr Pacht. Gute Kontakte helfen, die Fläche zu halten.",
+    "caseId": "F2",
+    "when": [{ "securedSites": { "gte": 1 } }],
+    "weight": 4,
+    "resist": { "target": 8, "label": "Fläche halten (2W6 + Kontakte ÷ 3, +1 mit Eigentümer-Kontakt)" },
+    "effects": [{ "site": "random:gesichert", "status": "verloren" }],
+    "resistEffects": [],
+    "causedBy": "sichern",
+    "knowledgeIds": ["n-konkurrent", "n-pachtvertrag"]
+  },
+  {
+    "id": "ev-versorger",
+    "title": "Großer Versorger sichert Flächen",
+    "text": "Ein großer Versorger zahlt 5–7 Jahre rund 50.000 € pro Jahr, auch ohne Anschluss, und sichert eine freie Fläche, bevor du es tust.",
+    "caseId": "F2",
+    "when": [{ "round": { "lte": 6 } }, { "freeSites": { "gte": 1 } }],
+    "weight": 2,
+    "effects": [{ "site": "random:frei", "status": "verloren" }],
+    "knowledgeIds": ["n-versorger", "n-pachtvertrag"]
+  },
+  {
+    "id": "ev-f3-zusage",
+    "title": "Eigentümer verweigert Flurstück an der Trasse",
+    "text": "Ein Flurstück entlang des Kabels wird verweigert. Ein Nein stoppt die Trasse, die Netzzusage hängt in der Luft.",
+    "caseId": "F3",
+    "when": [{ "noFlag": "trasse" }, { "grid": "zusage" }],
+    "weight": 5,
+    "effects": [{ "grid": "angefragt" }, { "months": 3 }, { "contacts": -1 }],
+    "causedBy": "netzzusage",
+    "knowledgeIds": ["n-trasse", "n-eigentuemer"]
+  },
+  {
+    "id": "ev-f3-mast",
+    "title": "Mast näher am Umspannwerk wird verweigert",
+    "text": "Ein Eigentümer verweigert einen Mast näher am Umspannwerk, „falls wir selber mal bauen wollen“. Die Planung muss ausweichen.",
+    "caseId": "F3",
+    "when": [{ "noFlag": "trasse" }, { "securedSites": { "gte": 1 } }, { "grid": ["vage", "angefragt"] }],
+    "weight": 2,
+    "effects": [{ "months": 3 }, { "budget": -10000 }],
+    "causedBy": "sichern",
+    "knowledgeIds": ["n-trasse", "n-eigentuemer"]
+  },
+  {
+    "id": "ev-f4-grenzgebiet",
+    "title": "Grenzgebiet: zwei Netzbetreiber stimmen sich ab",
+    "text": "Die Fläche liegt im Grenzgebiet. Anträge laufen bei beiden Netzbetreibern, die Abstimmung per E-Mail dauert fast 9 Monate, und die Pacht läuft weiter.",
+    "caseId": "F4",
+    "when": [{ "siteStatus": { "site": "W3", "status": "gesichert" } }],
+    "weight": 8,
+    "effects": [{ "months": 9 }, { "if": { "grid": "zusage" }, "then": [{ "grid": "angefragt" }] }],
+    "causedBy": "sichern",
+    "knowledgeIds": ["n-grenzgebiet", "n-netzbetreiber"]
+  },
+  {
+    "id": "ev-f4-email",
+    "title": "Abstimmung per E-Mail zieht sich",
+    "text": "Die Antwort des Netzbetreibers lässt auf sich warten; die Abstimmung läuft per E-Mail.",
+    "caseId": "F4",
+    "when": [{ "grid": "angefragt" }],
+    "weight": 3,
+    "effects": [{ "months": 3 }],
+    "causedBy": "netzanfrage",
+    "knowledgeIds": ["n-netzbetreiber", "n-grenzgebiet"]
+  },
+  {
+    "id": "ev-f5-einspeisung",
+    "title": "Netzbetreiber rechnet mit 100 % Einspeisung",
+    "text": "Die Überbauung scheitert: Der Netzbetreiber rechnet mit 100 % Einspeisung beider Anlagen. Der gemeinsame Anschluss steht nicht mehr.",
+    "caseId": "F5",
+    "when": [{ "flag": "shared" }, { "grid": "zusage" }],
+    "weight": 8,
+    "effects": [{ "grid": "vage" }, { "months": 3 }, { "clearFlag": "shared" }],
+    "causedBy": "teilen",
+    "knowledgeIds": ["n-einspeisung100", "n-gemeinsamer-anschluss"]
+  },
+  {
+    "id": "ev-f5-leitung",
+    "title": "Anschluss in 13 km",
+    "text": "Das PV-Projekt liegt 13 km vom nächsten Umspannwerk. Jeder Kilometer Leitung kostet sechsstellig.",
+    "caseId": "F5",
+    "when": [{ "siteStatus": { "site": "W8", "status": "gesichert" } }],
+    "weight": 8,
+    "effects": [{ "budget": -300000 }, { "months": 3 }],
+    "causedBy": "sichern",
+    "knowledgeIds": ["n-leitungskosten", "n-netzbetreiber"]
+  },
+  {
+    "id": "ev-f6-transport",
+    "title": "Schwertransport braucht Genehmigungen",
+    "text": "Die Flügel kommen per Tieflader über die Autobahn, dann per Blade-Lifter durch die Dörfer. Ampeln drehen, Leitplanken und Schilder entfernen ist genehmigungspflichtig. Durch Dorf C wird es besonders aufwendig.",
+    "caseId": "F6",
+    "when": [{ "permit": "erteilt" }],
+    "weight": 5,
+    "effects": [
+      { "budget": -60000 },
+      { "months": 3 },
+      { "if": { "siteStatus": { "site": "W6", "status": "gesichert" } }, "then": [{ "budget": -60000 }, { "months": 3 }] }
+    ],
+    "causedBy": "genehmigung",
+    "knowledgeIds": ["n-transport", "n-transportgenehmigung"]
+  },
+  {
+    "id": "ev-f6-dorf",
+    "title": "Dorf C murrt wegen der Transportroute",
+    "text": "Ampeln drehen, Leitplanken und Schilder entfernen: In den Dörfern wächst der Unmut, wenn niemand vorher informiert hat.",
+    "caseId": "F6",
+    "when": [{ "permit": ["beantragt", "erteilt"] }, { "support": { "lte": 5 } }],
+    "weight": 3,
+    "effects": [{ "support": -1 }, { "months": 3 }],
+    "causedBy": "gemeinde",
+    "knowledgeIds": ["n-gemeinde", "n-transportgenehmigung"]
+  },
+  {
+    "id": "ev-f7-brutvogel",
+    "title": "Brutvogel im Gutachten",
+    "text": "Das Gutachten findet einen Brutvogel. Das Ergebnis wird aufwendiger, die Genehmigung schwieriger.",
+    "caseId": "F7",
+    "when": [{ "survey": "laeuft" }, { "noFlag": "brutvogel" }],
+    "weight": 6,
+    "effects": [{ "flag": "brutvogel" }, { "budget": -50000 }],
+    "causedBy": "gutachten",
+    "knowledgeIds": ["n-gutachten", "n-betriebsauflagen"]
+  },
+  {
+    "id": "ev-f7-fledermaus",
+    "title": "Fledermaus-Abschaltung kostet 3–5 % Ertrag",
+    "text": "Mit der Genehmigung kommen Betriebsauflagen: Die Fledermaus-Abschaltung kostet 3–5 % Ertrag, dazu kommen Nachtabschaltung für Schallgrenzwerte und Kameras, die bei Brutvögeln abschalten.",
+    "caseId": "F7",
+    "when": [{ "permit": "erteilt" }],
+    "weight": 4,
+    "effects": [{ "flag": "fledermaus" }, { "budget": -20000 }],
+    "causedBy": "genehmigung",
+    "knowledgeIds": ["n-betriebsauflagen", "n-wirtschaftlichkeit"]
+  },
+  {
+    "id": "ev-f8-trafo",
+    "title": "Transformator fehlt",
+    "text": "Die 110-kV-Leitung am ehemaligen Kohlekraftwerk ist vorhanden, aber der Transformator fehlt. Die Nachrüstung kostet.",
+    "caseId": "F8",
+    "when": [{ "siteStatus": { "site": "W5", "status": "gesichert" } }, { "grid": ["angefragt", "vage", "zusage"] }],
+    "weight": 8,
+    "effects": [{ "grid": "absage" }, { "budget": -100000 }],
+    "causedBy": "sichern",
+    "knowledgeIds": ["n-trafo", "n-netzzusage"]
+  },
+  {
+    "id": "ev-f9-6b",
+    "title": "§ 6b WindBG tritt in Kraft",
+    "text": "In Beschleunigungsgebieten entfallen UVP und Artenschutzprüfung. Gutachtenumfang, Zeitplan und Flächenwert ändern sich; das Klagerisiko bleibt.",
+    "caseId": "F9",
+    "when": [{ "round": { "gte": 5 } }, { "noFlag": "law6b" }],
+    "weight": 4,
+    "effects": [{ "flag": "law6b" }, { "if": { "survey": "keins" }, "then": [{ "survey": "fertig" }] }],
+    "knowledgeIds": ["n-6b", "n-klagerisiko"]
+  },
+  {
+    "id": "ev-f9-klage",
+    "title": "Klage gegen die Genehmigung",
+    "text": "Das Klagerisiko bleibt auch im Beschleunigungsgebiet: Es wird geklagt, das Verfahren kostet Zeit und Geld.",
+    "caseId": "F9",
+    "when": [{ "flag": "law6b" }, { "permit": "erteilt" }],
+    "weight": 4,
+    "effects": [{ "months": 6 }, { "budget": -80000 }],
+    "causedBy": "genehmigung",
+    "knowledgeIds": ["n-klagerisiko", "n-6b"]
+  }
+]

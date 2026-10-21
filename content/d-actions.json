@@ -1,0 +1,240 @@
+[
+  {
+    "id": "sichern",
+    "label": "Fläche sichern",
+    "summary": "Pachtvertrag mit dem Eigentümer abschließen. Danach läuft Pacht, auch ohne Ausweisung.",
+    "cost": 20000,
+    "target": 5,
+    "needsSite": "frei",
+    "tags": ["eigentuemer"],
+    "requires": [],
+    "modifiers": [],
+    "onSuccess": [{ "site": "$target", "status": "gesichert" }],
+    "onFailure": [],
+    "successText": "Der Eigentümer unterschreibt.",
+    "failureText": "Der Eigentümer zögert, die Fläche bleibt frei.",
+    "caseId": "F2",
+    "knowledgeIds": ["n-pachtvertrag", "n-konkurrent"],
+    "reasons": [
+      { "id": "konkurrenz", "text": "Konkurrenten würden die Fläche sonst wegnehmen.", "valid": true, "why": "Im Interview werden Flächen lieber vor der Ausweisung gesichert, weil Konkurrenten sie sonst wegnehmen (F2)." },
+      { "id": "nicht-alle", "text": "Nicht alle Flächen werden ausgewiesen, deshalb lieber mehr sichern als nötig.", "valid": true, "why": "Mehr Flächen sichern in der Hoffnung auf Ausweisung ist Portfolio-Denken (F2)." },
+      { "id": "weissflaeche", "text": "Abstand zu Wohnhäusern, Schutzgebiete und Wald sind in der Weißflächenanalyse geprüft.", "valid": true, "why": "Die Weißflächenanalyse ist der erste Schritt im Ablauf und steht vor der Flächensicherung." },
+      { "id": "antrag", "text": "Das Landratsamt nimmt den Antrag nur an, wenn die Fläche schon vor der Ausweisung gesichert ist.", "valid": false, "why": "Viele Landratsämter nehmen den Antrag erst nach der Ausweisung an." },
+      { "id": "pacht-spaeter", "text": "Die Pacht fällt erst nach der Ausweisung an, das Risiko ist also null.", "valid": false, "why": "Große Versorger zahlen 5–7 Jahre rund 50.000 € pro Jahr, auch ohne Anschluss: Pacht läuft von Anfang an (F2)." },
+      { "id": "netz-inklusive", "text": "Mit der Fläche ist der Netzanschluss automatisch gesichert.", "valid": false, "why": "Der Netzanschluss ist ein eigenes Risiko; im Fall F1 lag die Genehmigung vor, aber der Anschluss scheiterte." }
+    ]
+  },
+  {
+    "id": "netzanfrage",
+    "label": "Netzanfrage stellen",
+    "summary": "Leitungen prüfen und Netzbedingungen abfragen. Die Antwort ist meist vage, keine verbindliche Zusage.",
+    "cost": 10000,
+    "target": 4,
+    "requires": [{ "grid": "keine" }],
+    "modifiers": [],
+    "onSuccess": [{ "grid": "vage" }, { "contacts": 1 }],
+    "onFailure": [{ "grid": "angefragt" }, { "later": 1, "text": "Die Antwort des Netzbetreibers kommt, und sie bleibt vage.", "effects": [{ "grid": "vage" }] }],
+    "successText": "Der Netzbetreiber antwortet, aber nur vage.",
+    "failureText": "Die Anfrage liegt beim Netzbetreiber; die Antwort kommt erst nächste Runde.",
+    "caseId": "F1",
+    "knowledgeIds": ["n-netzabfrage", "n-netzbetreiber"],
+    "reasons": [
+      { "id": "ganz-am-anfang", "text": "Netzbedingungen werden ganz am Anfang abgefragt, noch vor der Ausweisung.", "valid": true, "why": "So steht es im Ablauf des Projektierers (Schritt 3)." },
+      { "id": "f1", "text": "Wer erst nach der Genehmigung nach dem Netz fragt, riskiert den teuersten Fehler.", "valid": true, "why": "F1: Genehmigung da, Anschluss weg, Verlust siebenstellig." },
+      { "id": "leitungen", "text": "Eine Anfrage zeigt früh, ob Leitungen in der Nähe liegen.", "valid": true, "why": "Leitungen prüfen gehört zum Ablauf, bevor Flächen gesichert werden." },
+      { "id": "ersetzt-zusage", "text": "Die Antwort auf die Anfrage ersetzt die verbindliche Zusage.", "valid": false, "why": "Eine vage Auskunft ist keine Zusage; genau darauf ruht in Prototyp B die teuerste Lücke." },
+      { "id": "nach-ausweisung", "text": "Nach der Ausweisung ist es noch früh genug.", "valid": false, "why": "Laut Ablauf wird ganz am Anfang abgefragt, noch vor der Ausweisung." }
+    ]
+  },
+  {
+    "id": "netzzusage",
+    "label": "Verbindliche Netzzusage einholen",
+    "summary": "Aus der vagen Auskunft eine belastbare Zusage machen: Kapazität am Umspannwerk, Trafo, Trasse.",
+    "cost": 60000,
+    "target": 7,
+    "requires": [{ "grid": ["vage", "angefragt", "absage"] }, { "securedSites": { "gte": 1 } }],
+    "modifiers": [{ "when": { "grid": "absage" }, "delta": 2, "why": "Nach einer Absage ist es schwerer" }],
+    "onSuccess": [{ "grid": "zusage" }, { "contacts": 1 }],
+    "onFailure": [{ "grid": "absage" }],
+    "successText": "Der Netzbetreiber sagt den Anschluss verbindlich zu.",
+    "failureText": "Der Netzbetreiber sagt ab: Die Kapazität reicht nicht.",
+    "caseId": "F1",
+    "knowledgeIds": ["n-netzzusage", "n-kapazitaet"],
+    "reasons": [
+      { "id": "f1", "text": "Eine Genehmigung nützt nichts, wenn der Netzanschluss später scheitert.", "valid": true, "why": "F1: Verlust siebenstellig, obwohl die Genehmigung vorlag." },
+      { "id": "kapazitaet", "text": "Die Kapazität am Umspannwerk muss belegt sein, nicht nur mündlich zugesagt.", "valid": true, "why": "Eine mündliche Auskunft ist in Prototyp B eine Lücke (sorry)." },
+      { "id": "grenzgebiet", "text": "Im Grenzgebiet zweier Netzbetreiber müssen beide zustimmen.", "valid": true, "why": "F4: Anträge laufen bei beiden Betreibern, die Abstimmung dauerte fast 9 Monate." },
+      { "id": "genehmigung-ersetzt", "text": "Die Genehmigung ersetzt die Netzzusage.", "valid": false, "why": "Genau das ist der Fehler aus F1." },
+      { "id": "muendlich", "text": "Eine mündliche Auskunft des Netzbetreibers reicht als Beleg.", "valid": false, "why": "Eine mündliche Auskunft belegt nichts; sie bleibt eine offene Annahme." }
+    ]
+  },
+  {
+    "id": "eigentuemer",
+    "label": "Eigentümer treffen",
+    "summary": "Kontakt pflegen, Motive verstehen, Vertrauen aufbauen. Kontakte sind „immer was wert“.",
+    "cost": 5000,
+    "target": 6,
+    "tags": ["eigentuemer"],
+    "requires": [],
+    "modifiers": [],
+    "onSuccess": [{ "contacts": 1 }, { "flag": "owners" }],
+    "onFailure": [],
+    "successText": "Das Gespräch war gut, der Kontakt ist wertvoll.",
+    "failureText": "Das Gespräch bringt nichts Neues.",
+    "caseId": "F3",
+    "knowledgeIds": ["n-eigentuemer", "n-trasse"],
+    "reasons": [
+      { "id": "motive", "text": "Eigentümer haben eigene Motive, etwa „falls wir selber mal bauen wollen“.", "valid": true, "why": "F3: Ein Mast näher am Umspannwerk wurde verweigert, falls sie selber mal bauen wollen." },
+      { "id": "jedes-flurstueck", "text": "Entlang der Trasse zählt jedes einzelne Flurstück.", "valid": true, "why": "F3: Jedes Flurstück muss gesichert sein, ein Nein stoppt die Trasse." },
+      { "id": "kontakte", "text": "Kontakte sind immer was wert.", "valid": true, "why": "So beschreibt der Projektierer im Interview seinen Alltag." },
+      { "id": "ueberstimmen", "text": "Ein einzelnes Nein lässt sich später überstimmen.", "valid": false, "why": "Ein Nein stoppt die Trasse (F3)." },
+      { "id": "nur-pacht", "text": "Eigentümer entscheiden nur nach der Höhe der Pacht.", "valid": false, "why": "Im Interview spielen auch eigene Pläne eine Rolle; Pacht ist nicht das einzige Motiv." }
+    ]
+  },
+  {
+    "id": "gemeinde",
+    "label": "Gemeinde informieren",
+    "summary": "Rückhalt vor Ort aufbauen: Dörfer entlang der Zufahrt, Bürgermeister, Gemeinderat.",
+    "cost": 5000,
+    "target": 5,
+    "tags": ["gemeinde"],
+    "requires": [],
+    "modifiers": [],
+    "onSuccess": [{ "support": 2 }, { "contacts": 1 }],
+    "onFailure": [{ "support": -1 }],
+    "successText": "Die Gemeinde ist informiert und wohlwollend.",
+    "failureText": "Das Gespräch verläuft holprig, der Rückhalt sinkt.",
+    "caseId": "F6",
+    "knowledgeIds": ["n-gemeinde", "n-transportgenehmigung"],
+    "reasons": [
+      { "id": "transport", "text": "Der Transport führt durch Dörfer; Ampeln drehen, Leitplanken und Schilder entfernen ist genehmigungspflichtig.", "valid": true, "why": "F6: alles genehmigungspflichtig." },
+      { "id": "aemter", "text": "An der Genehmigung sind rund 25 Ämter beteiligt, Rückhalt vor Ort hilft.", "valid": true, "why": "Im Ablauf sind rund 25 Ämter beteiligt." },
+      { "id": "kontakt", "text": "Ein früher Kontakt zum Bürgermeister zahlt sich später aus.", "valid": true, "why": "Kontakte sind im Interview „immer was wert“." },
+      { "id": "gemeinde-allein", "text": "Die Gemeinde entscheidet allein über die Genehmigung.", "valid": false, "why": "Es sind rund 25 Ämter beteiligt, nicht nur die Gemeinde." },
+      { "id": "erst-spaeter", "text": "Informieren muss man die Gemeinde erst nach der Genehmigung.", "valid": false, "why": "Genehmigung und Transport brauchen die Gemeinde schon vorher." }
+    ]
+  },
+  {
+    "id": "gutachten",
+    "label": "Naturschutzgutachten beauftragen",
+    "summary": "Kostet schnell 150.000 €, das Ergebnis kommt erst nach einer Brutperiode (zwei Runden).",
+    "cost": 150000,
+    "target": 3,
+    "requires": [{ "survey": "keins" }, { "designatedSecured": { "gte": 1 } }],
+    "modifiers": [],
+    "onSuccess": [
+      { "survey": "laeuft" },
+      {
+        "later": 2,
+        "text": "Das Gutachten liegt nach der Brutperiode vor.",
+        "effects": [
+          { "if": { "flag": "brutvogel" }, "then": [{ "survey": "problem" }] },
+          { "if": { "noFlag": "brutvogel" }, "then": [{ "survey": "fertig" }] }
+        ]
+      }
+    ],
+    "onFailure": [],
+    "successText": "Das Gutachten ist beauftragt; das Ergebnis kommt erst nach einer Brutperiode.",
+    "failureText": "Kein Gutachter hat Kapazität, nächste Runde erneut versuchen.",
+    "caseId": "F7",
+    "knowledgeIds": ["n-gutachten", "n-brutperiode"],
+    "reasons": [
+      { "id": "brutperiode", "text": "Das Ergebnis kommt erst nach einer Brutperiode, also etwa nach einem Jahr.", "valid": true, "why": "So steht es im Ablauf (Schritt 6)." },
+      { "id": "voraussetzung", "text": "Das Gutachten ist Voraussetzung für die Genehmigung.", "valid": true, "why": "Der Ablauf führt vom Gutachten zur Genehmigung." },
+      { "id": "nach-ausweisung", "text": "Die Ausweisung ist erfolgt; vorher lohnt es nicht, 150.000 € auszugeben.", "valid": true, "why": "Im Ablauf wird die Ausweisung abgewartet, bevor das Gutachten beauftragt wird." },
+      { "id": "wochen", "text": "Das Gutachten liegt nach wenigen Wochen vor.", "valid": false, "why": "Es dauert eine Brutperiode, etwa ein Jahr." },
+      { "id": "guenstig", "text": "Ein Gutachten kostet nur etwa 15.000 €.", "valid": false, "why": "Es kostet schnell 150.000 €." }
+    ]
+  },
+  {
+    "id": "genehmigung",
+    "label": "Genehmigung beantragen",
+    "summary": "Antrag nach Immissionsschutzrecht mit rund 25 beteiligten Ämtern. Entscheidung nach zwei Runden.",
+    "cost": 250000,
+    "target": 7,
+    "requires": [{ "survey": ["fertig", "problem"] }, { "permit": "keine" }, { "designatedSecured": { "gte": 1 } }],
+    "modifiers": [
+      { "when": { "survey": "problem" }, "delta": 2, "why": "Brutvogel im Gutachten" },
+      { "when": { "support": { "gte": 6 } }, "delta": -1, "why": "Rückhalt in der Gemeinde" },
+      { "when": { "flag": "law6b" }, "delta": -1, "why": "§ 6b WindBG: weniger Prüfungen" }
+    ],
+    "onSuccess": [{ "permit": "beantragt" }, { "later": 2, "text": "Die Genehmigung wird erteilt.", "effects": [{ "permit": "erteilt" }] }],
+    "onFailure": [{ "months": 3 }, { "budget": -50000 }],
+    "successText": "Der Antrag ist vollständig; rund 25 Ämter prüfen.",
+    "failureText": "Die Ämter fordern nach: Der Antrag verzögert sich um drei Monate.",
+    "caseId": "F1",
+    "knowledgeIds": ["n-bimschg", "n-gutachten"],
+    "reasons": [
+      { "id": "aemter", "text": "Rund 25 Ämter sind beteiligt, der Antrag muss vollständig sein.", "valid": true, "why": "So steht es im Ablauf (Schritt 7)." },
+      { "id": "gutachten", "text": "Das Naturschutzgutachten liegt vor.", "valid": true, "why": "Das Gutachten kommt im Ablauf vor der Genehmigung." },
+      { "id": "ausgewiesen", "text": "Die Fläche ist ausgewiesen, vorher nehmen viele Landratsämter den Antrag nicht an.", "valid": true, "why": "Viele Landratsämter nehmen den Antrag erst nach der Ausweisung an." },
+      { "id": "ohne-gutachten", "text": "Ohne Gutachten geht es auch, das spart 150.000 €.", "valid": false, "why": "Das Gutachten ist Teil des Ablaufs und Voraussetzung der Genehmigung." },
+      { "id": "nur-ein-amt", "text": "Es genügt, ein einziges Amt zu überzeugen.", "valid": false, "why": "Rund 25 Ämter sind beteiligt." }
+    ]
+  },
+  {
+    "id": "ausschreibung",
+    "label": "An Ausschreibung teilnehmen",
+    "summary": "Mit der Genehmigung in die EEG-Ausschreibung. Der Zuschlag legt die Vergütung fest.",
+    "cost": 30000,
+    "target": 7,
+    "requires": [{ "permit": "erteilt" }, { "award": false }],
+    "modifiers": [],
+    "onSuccess": [{ "award": true }],
+    "onFailure": [],
+    "successText": "Der Zuschlag ist erteilt.",
+    "failureText": "Kein Zuschlag in dieser Runde.",
+    "caseId": "F1",
+    "knowledgeIds": ["n-eeg", "n-bimschg"],
+    "reasons": [
+      { "id": "mit-genehmigung", "text": "Mit der Genehmigung geht das Projekt in die EEG-Ausschreibung.", "valid": true, "why": "Ablauf, Schritt 8." },
+      { "id": "netzzusage", "text": "Die Netzzusage sollte vorher stehen, sonst droht F1.", "valid": true, "why": "F1: Genehmigung da, Anschluss weg." },
+      { "id": "ohne-genehmigung", "text": "Man kann auch ohne Genehmigung teilnehmen.", "valid": false, "why": "Im Ablauf geht das Projekt mit der Genehmigung in die Ausschreibung." },
+      { "id": "zuschlag-netz", "text": "Der Zuschlag sichert auch den Netzanschluss.", "valid": false, "why": "Der Netzanschluss ist ein eigenes Risiko (F1)." }
+    ]
+  },
+  {
+    "id": "trasse",
+    "label": "Trasse sichern",
+    "summary": "Alle Flurstücke entlang des Kabels sichern, inklusive Mast näher am Umspannwerk.",
+    "cost": 30000,
+    "target": 8,
+    "tags": ["eigentuemer"],
+    "requires": [{ "securedSites": { "gte": 1 } }, { "noFlag": "trasse" }],
+    "modifiers": [{ "when": { "flag": "owners" }, "delta": -1, "why": "Eigentümer-Kontakt" }],
+    "onSuccess": [{ "flag": "trasse" }, { "clearFlag": "trasseBlocked" }],
+    "onFailure": [{ "contacts": -1 }],
+    "successText": "Alle Flurstücke entlang der Trasse sind gesichert.",
+    "failureText": "Ein Eigentümer sagt Nein; der Kontakt leidet.",
+    "caseId": "F3",
+    "knowledgeIds": ["n-trasse", "n-eigentuemer"],
+    "reasons": [
+      { "id": "jedes", "text": "Jedes Flurstück entlang des Kabels muss gesichert sein.", "valid": true, "why": "F3." },
+      { "id": "nein-stoppt", "text": "Ein einziges Nein stoppt die Trasse.", "valid": true, "why": "F3." },
+      { "id": "mast", "text": "Selbst ein Mast näher am Umspannwerk kann verweigert werden.", "valid": true, "why": "F3: Ein Mast näher am Umspannwerk wurde verweigert." },
+      { "id": "mehrheit", "text": "Die Mehrheit der Eigentümer genügt.", "valid": false, "why": "Ein einziges Nein stoppt die Trasse." },
+      { "id": "netzbetreiber-erwirbt", "text": "Der Netzbetreiber besorgt die Flurstücke, wenn ein Eigentümer ablehnt.", "valid": false, "why": "Davon ist im Fall F3 nicht die Rede; die Trasse ist Sache des Projektierers." }
+    ]
+  },
+  {
+    "id": "teilen",
+    "label": "Anschluss mit Nachbaranlage teilen",
+    "summary": "Mit einer Nachbaranlage einen gemeinsamen Anschluss suchen, um Leitungskosten zu teilen. Kostet einen Kontakt.",
+    "cost": 20000,
+    "target": 8,
+    "requires": [{ "grid": ["absage", "vage", "angefragt"] }, { "contacts": { "gte": 3 } }, { "securedSites": { "gte": 1 } }],
+    "modifiers": [],
+    "onSuccess": [{ "grid": "zusage" }, { "flag": "shared" }, { "contacts": -1 }],
+    "onFailure": [{ "contacts": -1 }],
+    "successText": "Eine Nachbaranlage macht mit: ein gemeinsamer Anschluss.",
+    "failureText": "Keine Nachbaranlage will mitmachen; der Kontakt ist verbraucht.",
+    "caseId": "F5",
+    "knowledgeIds": ["n-gemeinsamer-anschluss", "n-leitungskosten"],
+    "reasons": [
+      { "id": "kosten", "text": "Jeder Kilometer Leitung kostet sechsstellig, ein gemeinsamer Anschluss teilt die Kosten.", "valid": true, "why": "F5." },
+      { "id": "kooperation", "text": "Nachbaranlagen suchen ebenfalls einen Anschluss; Kooperation ist ein Hebel.", "valid": true, "why": "F5: Der Projektierer sucht Nachbaranlagen für einen gemeinsamen Anschluss." },
+      { "id": "ueberbauung", "text": "Überbauung wird vom Netzbetreiber immer anerkannt.", "valid": false, "why": "F5: Überbauung scheitert, weil der Netzbetreiber mit 100 % Einspeisung rechnet." },
+      { "id": "halbe-leistung", "text": "Der Netzbetreiber rechnet bei geteiltem Anschluss nur mit der halben Leistung.", "valid": false, "why": "F5: Er rechnet mit 100 % Einspeisung." }
+    ]
+  }
+]
