@@ -1,0 +1,65 @@
+[
+  {
+    "id": "F1",
+    "title": "Anschluss scheitert nach Genehmigung",
+    "situation": "Die Genehmigung liegt vor, aber der Netzanschluss klappt nicht. Der Verlust ist siebenstellig.",
+    "domains": ["netz", "genehmigung", "finanzen"],
+    "source": "Interview"
+  },
+  {
+    "id": "F2",
+    "title": "Flächen vor der Ausweisung",
+    "situation": "Der Projektierer sichert mehr Flächen als nötig, in der Hoffnung auf Ausweisung. Große Versorger zahlen 5–7 Jahre rund 50.000 € pro Jahr, auch ohne Anschluss.",
+    "domains": ["recht", "vertraege", "finanzen"],
+    "source": "Interview"
+  },
+  {
+    "id": "F3",
+    "title": "Eigentümer blockiert Trasse",
+    "situation": "Jedes Flurstück entlang des Kabels muss gesichert sein, ein Nein stoppt die Trasse. Ein Mast näher am Umspannwerk wird verweigert, „falls sie selber mal bauen wollen“.",
+    "domains": ["vertraege", "netz"],
+    "source": "Interview"
+  },
+  {
+    "id": "F4",
+    "title": "Zwei Netzbetreiber",
+    "situation": "Die Anlage liegt im Grenzgebiet. Anträge laufen bei beiden Netzbetreibern, die Abstimmung läuft per E-Mail und dauert fast 9 Monate.",
+    "domains": ["netz", "vertraege"],
+    "source": "Interview"
+  },
+  {
+    "id": "F5",
+    "title": "Anschluss in 13 km",
+    "situation": "PV-Projekt: Jeder Kilometer Leitung kostet sechsstellig. Der Projektierer sucht Nachbaranlagen für einen gemeinsamen Anschluss. Überbauung scheitert, weil der Netzbetreiber mit 100 % Einspeisung rechnet.",
+    "domains": ["netz", "technik"],
+    "source": "Interview"
+  },
+  {
+    "id": "F6",
+    "title": "Transport durch Freiberg",
+    "situation": "Die Flügel kommen per Tieflader über die Autobahn, dann per Blade-Lifter durch die Dörfer. Ampeln drehen, Leitplanken und Schilder entfernen ist alles genehmigungspflichtig.",
+    "domains": ["logistik", "genehmigung"],
+    "source": "Interview"
+  },
+  {
+    "id": "F7",
+    "title": "Auflagen im Betrieb",
+    "situation": "Die Fledermaus-Abschaltung kostet 3–5 % Ertrag. Dazu kommen eine Nachtabschaltung für Schallgrenzwerte und Kameras, die bei Brutvögeln abschalten.",
+    "domains": ["natur", "technik", "finanzen"],
+    "source": "Interview"
+  },
+  {
+    "id": "F8",
+    "title": "Leitung ohne Trafo",
+    "situation": "Ein ehemaliges Kohlekraftwerk an der polnischen Grenze: Eine 110-kV-Leitung ist vorhanden, der Transformator fehlt.",
+    "domains": ["netz", "technik"],
+    "source": "Interview"
+  },
+  {
+    "id": "F9",
+    "title": "Rechtsänderung § 6b WindBG",
+    "situation": "In Beschleunigungsgebieten entfallen UVP und Artenschutzprüfung. Gutachtenumfang, Zeitplan und Flächenwert ändern sich, das Klagerisiko bleibt.",
+    "domains": ["recht", "natur", "vertraege"],
+    "source": "Recherche"
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "viewBox": [1000, 700],
+  "villages": [
+    { "id": "dorf-a", "name": "Dorf A", "x": 200, "y": 150, "bufferRadius": 60 },
+    { "id": "dorf-b", "name": "Dorf B", "x": 700, "y": 120, "bufferRadius": 55 },
+    { "id": "dorf-c", "name": "Dorf C", "x": 450, "y": 520, "bufferRadius": 65 },
+    { "id": "dorf-d", "name": "Dorf D", "x": 850, "y": 450, "bufferRadius": 55 }
+  ],
+  "substations": [
+    { "id": "uw-nord", "name": "UW Nord", "x": 400, "y": 200, "operator": "nord" },
+    { "id": "uw-sued", "name": "UW Süd", "x": 780, "y": 560, "operator": "sued" }
+  ],
+  "lines": [
+    { "id": "netz-nord", "points": [[400, 200], [560, 215], [760, 250]], "kind": "netz" },
+    { "id": "netz-sued", "points": [[780, 560], [640, 500], [520, 500]], "kind": "netz" },
+    { "id": "trasse-w4", "points": [[315, 400], [335, 300], [400, 200]], "kind": "netz" },
+    { "id": "alt-110kv", "points": [[40, 500], [150, 520], [250, 550], [330, 600]], "kind": "alt_110kv" },
+    { "id": "autobahn", "points": [[0, 640], [300, 610], [600, 650], [1000, 620]], "kind": "autobahn" },
+    { "id": "zufahrt-dorf-c", "points": [[440, 625], [450, 560], [455, 520], [520, 460]], "kind": "strasse" }
+  ],
+  "areas": [
+    { "id": "netzgrenze", "kind": "netzgrenze", "polygon": [[0, 352], [1000, 382], [1000, 392], [0, 362]] },
+    { "id": "schutzgebiet-1", "kind": "schutzgebiet", "polygon": [[850, 150], [960, 160], [970, 270], [860, 290]] },
+    { "id": "wald-monokultur", "kind": "wald", "polygon": [[90, 290], [240, 290], [250, 400], [100, 410]] }
+  ],
+  "sites": [
+    {
+      "id": "W1",
+      "name": "W1 · nah an UW Nord",
+      "polygon": [[420, 230], [500, 230], [500, 300], [420, 300]],
+      "caseIds": ["F1"],
+      "tech": "wind"
+    },
+    {
+      "id": "W2",
+      "name": "W2 · am Schutzgebiet",
+      "polygon": [[770, 220], [840, 220], [840, 290], [770, 290]],
+      "caseIds": ["F7"],
+      "tech": "wind"
+    },
+    {
+      "id": "W3",
+      "name": "W3 · Netzbetreiber-Grenze",
+      "polygon": [[560, 325], [650, 330], [650, 395], [560, 390]],
+      "caseIds": ["F4"],
+      "tech": "wind"
+    },
+    {
+      "id": "W4",
+      "name": "W4 · Trasse über fremde Flurstücke",
+      "polygon": [[280, 400], [350, 400], [350, 460], [280, 460]],
+      "caseIds": ["F3"],
+      "tech": "wind"
+    },
+    {
+      "id": "W5",
+      "name": "W5 · alte 110-kV-Leitung",
+      "polygon": [[110, 535], [180, 550], [180, 600], [110, 590]],
+      "caseIds": ["F8"],
+      "tech": "wind"
+    },
+    {
+      "id": "W6",
+      "name": "W6 · Zufahrt durch Dorf C",
+      "polygon": [[520, 405], [590, 405], [590, 460], [520, 460]],
+      "caseIds": ["F6"],
+      "tech": "wind"
+    },
+    {
+      "id": "W7",
+      "name": "W7 · Monokultur-Wald",
+      "polygon": [[110, 310], [190, 310], [190, 380], [110, 380]],
+      "caseIds": [],
+      "tech": "wind"
+    },
+    {
+      "id": "W8",
+      "name": "W8 · PV, 13 km zum Umspannwerk",
+      "polygon": [[880, 40], [960, 40], [960, 100], [880, 100]],
+      "caseIds": ["F5"],
+      "tech": "pv"
+    }
+  ]
+}

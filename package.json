@@ -1,0 +1,42 @@
+{
+  "name": "energyamboss-prototypen",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Fünf klickbare Prototypen (A–E) für Projektentwickler in einer Web-App",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "seed:sql": "node scripts/gen-seed.mjs",
+    "verify:list": "node scripts/list-verify.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.137.0",
+    "@supabase/supabase-js": "2.118.0",
+    "cytoscape": "3.34.4",
+    "papercss": "1.9.2",
+    "react": "19.3.1",
+    "react-cytoscapejs": "2.0.0",
+    "react-dom": "19.3.1",
+    "react-router-dom": "7.18.4",
+    "recharts": "3.10.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "@types/react": "19.3.0",
+    "@types/react-cytoscapejs": "1.2.6",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "typescript": "7.0.2",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}

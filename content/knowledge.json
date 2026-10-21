@@ -1,0 +1,536 @@
+{
+  "nodes": [
+    {
+      "id": "n-weissflaeche",
+      "label": "Weißflächenanalyse",
+      "kind": "schritt",
+      "domain": "recht",
+      "summary": "Erster Schritt im Ablauf: Abstand zu jedem Wohnhaus, Schutzgebiete und Wald prüfen. Übrig bleibt die Weißfläche, auf der gesucht wird.",
+      "caseIds": [
+        "F2"
+      ]
+    },
+    {
+      "id": "n-abstand-wohnhaus",
+      "label": "Abstand zu Wohnhäusern",
+      "kind": "risiko",
+      "domain": "recht",
+      "summary": "Wird in der Weißflächenanalyse für jedes Wohnhaus geprüft. Die Notiz im Interview lautet „1000km“, vermutlich 1.000 m.",
+      "caseIds": [
+        "F2"
+      ],
+      "verify": true
+    },
+    {
+      "id": "n-schutzgebiete",
+      "label": "Schutzgebiete",
+      "kind": "risiko",
+      "domain": "natur",
+      "summary": "Schutzgebiete scheiden Flächen in der Weißflächenanalyse aus; auch an ihrem Rand drohen später Gutachten- und Betriebsauflagen.",
+      "caseIds": [
+        "F7"
+      ]
+    },
+    {
+      "id": "n-wald",
+      "label": "Wald (Monokulturen)",
+      "kind": "risiko",
+      "domain": "natur",
+      "summary": "Wald zählt in der Weißflächenanalyse mit; Monokulturen gehen, anderer Wald nicht.",
+      "caseIds": []
+    },
+    {
+      "id": "n-eigentuemer",
+      "label": "Grundeigentümer",
+      "kind": "akteur",
+      "domain": "vertraege",
+      "summary": "Wird über das Recht auf Eigentümerauskunft gefunden und im CRM auf der Karte gepflegt. Hat eigene Motive, etwa „falls wir selber mal bauen wollen“.",
+      "caseIds": [
+        "F3"
+      ]
+    },
+    {
+      "id": "n-pachtvertrag",
+      "label": "Pachtvertrag (Flächensicherung)",
+      "kind": "schritt",
+      "domain": "vertraege",
+      "summary": "Flächen werden lieber mehr als nötig und vor der Ausweisung gesichert, weil Konkurrenten sie sonst wegnehmen. Die Pacht läuft auch bei Verzögerungen weiter.",
+      "caseIds": [
+        "F2",
+        "F4"
+      ]
+    },
+    {
+      "id": "n-ruecktritt",
+      "label": "Rücktrittsklausel",
+      "kind": "norm",
+      "domain": "vertraege",
+      "summary": "Vertragshebel, der die Verlustseite begrenzt: Bei negativer Netzzusage entfällt die Restpacht.",
+      "caseIds": [
+        "F1"
+      ]
+    },
+    {
+      "id": "n-konkurrent",
+      "label": "Konkurrierender Projektierer",
+      "kind": "akteur",
+      "domain": "vertraege",
+      "summary": "Wirbt Flächen ab, die nicht rechtzeitig gesichert sind.",
+      "caseIds": [
+        "F2"
+      ]
+    },
+    {
+      "id": "n-versorger",
+      "label": "Großer Versorger",
+      "kind": "akteur",
+      "domain": "finanzen",
+      "summary": "Zahlt 5–7 Jahre rund 50.000 € pro Jahr, auch ohne Anschluss, und arbeitet wie eine Behörde.",
+      "caseIds": [
+        "F2"
+      ]
+    },
+    {
+      "id": "n-ausweisung",
+      "label": "Ausweisung als Windgebiet",
+      "kind": "schritt",
+      "domain": "recht",
+      "summary": "Viele Landratsämter nehmen den Antrag erst nach der Ausweisung an. Die Regionalplanung prüft Naturschutz schon bei der Ausweisung.",
+      "caseIds": [
+        "F2",
+        "F9"
+      ]
+    },
+    {
+      "id": "n-netzabfrage",
+      "label": "Netzabfrage",
+      "kind": "schritt",
+      "domain": "netz",
+      "summary": "Leitungen prüfen und Netzbedingungen abfragen, ganz am Anfang und noch vor der Ausweisung.",
+      "caseIds": [
+        "F1"
+      ]
+    },
+    {
+      "id": "n-netzzusage",
+      "label": "Verbindliche Netzzusage",
+      "kind": "risiko",
+      "domain": "netz",
+      "summary": "Wer ohne belastbare Zusage genehmigt, riskiert den teuersten Fehler: Genehmigung da, Anschluss weg, Verlust siebenstellig.",
+      "caseIds": [
+        "F1"
+      ]
+    },
+    {
+      "id": "n-netzbetreiber",
+      "label": "Netzbetreiber",
+      "kind": "akteur",
+      "domain": "netz",
+      "summary": "Beantwortet Anfragen, verdient am Netzausbau und rechnet bei Anschlüssen mit seinen eigenen Annahmen.",
+      "caseIds": [
+        "F4",
+        "F5"
+      ]
+    },
+    {
+      "id": "n-grenzgebiet",
+      "label": "Grenzgebiet zweier Netzbetreiber",
+      "kind": "risiko",
+      "domain": "netz",
+      "summary": "Anträge laufen bei beiden Betreibern, die Abstimmung per E-Mail dauerte im Interview fast 9 Monate.",
+      "caseIds": [
+        "F4"
+      ]
+    },
+    {
+      "id": "n-kapazitaet",
+      "label": "Kapazität am Umspannwerk",
+      "kind": "kennzahl",
+      "domain": "netz",
+      "summary": "Ohne belastbare Auskunft zur Kapazität ruhen Netzanschluss und Projektziel auf einer Lücke.",
+      "caseIds": [
+        "F1",
+        "F5"
+      ]
+    },
+    {
+      "id": "n-leitungskosten",
+      "label": "Leitungskosten je Kilometer",
+      "kind": "kennzahl",
+      "domain": "finanzen",
+      "summary": "Jeder Kilometer Leitung kostet sechsstellig; bei 13 km Entfernung zum Anschluss wird das zum Kernproblem.",
+      "caseIds": [
+        "F5"
+      ]
+    },
+    {
+      "id": "n-einspeisung100",
+      "label": "Annahme 100 % Einspeisung",
+      "kind": "risiko",
+      "domain": "technik",
+      "summary": "Der Netzbetreiber rechnet mit 100 % Einspeisung. Deshalb scheitert die Überbauung, mit der Nachbaranlagen einen Anschluss teilen könnten.",
+      "caseIds": [
+        "F5"
+      ]
+    },
+    {
+      "id": "n-gemeinsamer-anschluss",
+      "label": "Gemeinsamer Anschluss mit Nachbaranlage",
+      "kind": "schritt",
+      "domain": "netz",
+      "summary": "Kooperation mit Nachbaranlagen, um Leitungskosten zu teilen. Kein Selbstläufer, siehe Überbauung.",
+      "caseIds": [
+        "F5"
+      ]
+    },
+    {
+      "id": "n-trafo",
+      "label": "Transformator",
+      "kind": "risiko",
+      "domain": "technik",
+      "summary": "Eine 110-kV-Leitung am Standort eines ehemaligen Kohlekraftwerks genügt nicht: Der Transformator fehlt.",
+      "caseIds": [
+        "F8"
+      ]
+    },
+    {
+      "id": "n-trasse",
+      "label": "Kabeltrasse über fremde Flurstücke",
+      "kind": "risiko",
+      "domain": "vertraege",
+      "summary": "Jedes Flurstück entlang des Kabels muss gesichert sein; ein einziges Nein stoppt die Trasse.",
+      "caseIds": [
+        "F3"
+      ]
+    },
+    {
+      "id": "n-gutachten",
+      "label": "Naturschutzgutachten",
+      "kind": "schritt",
+      "domain": "natur",
+      "summary": "Wird nach der Ausweisung beauftragt, kostet schnell 150.000 € und liefert das Ergebnis erst nach einer Brutperiode.",
+      "caseIds": [
+        "F7",
+        "F9"
+      ]
+    },
+    {
+      "id": "n-brutperiode",
+      "label": "Brutperiode",
+      "kind": "kennzahl",
+      "domain": "natur",
+      "summary": "Etwa ein Jahr Wartezeit, bis das Gutachtenergebnis feststeht.",
+      "caseIds": [
+        "F7"
+      ]
+    },
+    {
+      "id": "n-bimschg",
+      "label": "Genehmigung nach Immissionsschutzrecht",
+      "kind": "norm",
+      "domain": "genehmigung",
+      "summary": "Rund 25 Ämter sind beteiligt. Sie folgt auf die Ausweisung und das Gutachten.",
+      "caseIds": [
+        "F1",
+        "F6"
+      ]
+    },
+    {
+      "id": "n-eeg",
+      "label": "EEG-Ausschreibung",
+      "kind": "schritt",
+      "domain": "finanzen",
+      "summary": "Mit der Genehmigung geht das Projekt in die EEG-Ausschreibung; der Zuschlag legt die Vergütung fest.",
+      "caseIds": [
+        "F1"
+      ]
+    },
+    {
+      "id": "n-transport",
+      "label": "Schwertransport der Flügel",
+      "kind": "schritt",
+      "domain": "logistik",
+      "summary": "Per Tieflader über die Autobahn, dann per Blade-Lifter durch die Dörfer.",
+      "caseIds": [
+        "F6"
+      ]
+    },
+    {
+      "id": "n-transportgenehmigung",
+      "label": "Transportgenehmigungen",
+      "kind": "norm",
+      "domain": "genehmigung",
+      "summary": "Ampeln drehen, Leitplanken und Schilder entfernen: alles genehmigungspflichtig.",
+      "caseIds": [
+        "F6"
+      ]
+    },
+    {
+      "id": "n-gemeinde",
+      "label": "Gemeinde und Rückhalt vor Ort",
+      "kind": "akteur",
+      "domain": "genehmigung",
+      "summary": "Dörfer entlang der Transportroute und Gemeinden mit Ortsdurchfahrten sind an Genehmigungen und Akzeptanz beteiligt.",
+      "caseIds": [
+        "F6"
+      ]
+    },
+    {
+      "id": "n-betriebsauflagen",
+      "label": "Betriebsauflagen (Abschaltungen)",
+      "kind": "risiko",
+      "domain": "natur",
+      "summary": "Fledermaus-Abschaltung (3–5 % Ertrag), Nachtabschaltung für Schallgrenzwerte, Kameras schalten bei Brutvögeln ab.",
+      "caseIds": [
+        "F7"
+      ]
+    },
+    {
+      "id": "n-wirtschaftlichkeit",
+      "label": "Wirtschaftlichkeit des Projekts",
+      "kind": "kennzahl",
+      "domain": "finanzen",
+      "summary": "Ergibt sich aus Erlös und Kosten: Pacht, Gutachten, Leitung, Transport und Ertragsverluste durch Auflagen.",
+      "caseIds": [
+        "F4",
+        "F5",
+        "F7"
+      ]
+    },
+    {
+      "id": "n-6b",
+      "label": "§ 6b WindBG",
+      "kind": "norm",
+      "domain": "recht",
+      "summary": "In Beschleunigungsgebieten entfallen UVP und Artenschutzprüfung. Gutachtenumfang, Zeitplan und Flächenwert ändern sich.",
+      "caseIds": [
+        "F9"
+      ]
+    },
+    {
+      "id": "n-klagerisiko",
+      "label": "Klagerisiko",
+      "kind": "risiko",
+      "domain": "recht",
+      "summary": "Bleibt auch in Beschleunigungsgebieten bestehen.",
+      "caseIds": [
+        "F9"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "n-weissflaeche",
+      "to": "n-abstand-wohnhaus",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-weissflaeche",
+      "to": "n-schutzgebiete",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-weissflaeche",
+      "to": "n-wald",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-pachtvertrag",
+      "to": "n-weissflaeche",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-pachtvertrag",
+      "to": "n-eigentuemer",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-ruecktritt",
+      "to": "n-pachtvertrag",
+      "kind": "setzt_voraus",
+      "note": "greift bei negativer Netzzusage"
+    },
+    {
+      "from": "n-konkurrent",
+      "to": "n-pachtvertrag",
+      "kind": "verteuert",
+      "note": "bietet dem Eigentümer mehr Pacht"
+    },
+    {
+      "from": "n-versorger",
+      "to": "n-pachtvertrag",
+      "kind": "verteuert",
+      "note": "zahlt 5–7 Jahre rund 50.000 € pro Jahr"
+    },
+    {
+      "from": "n-pachtvertrag",
+      "to": "n-wirtschaftlichkeit",
+      "kind": "verteuert",
+      "note": "Pacht läuft bei Verzögerungen weiter"
+    },
+    {
+      "from": "n-netzabfrage",
+      "to": "n-netzbetreiber",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-netzzusage",
+      "to": "n-netzabfrage",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-netzzusage",
+      "to": "n-kapazitaet",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-netzzusage",
+      "to": "n-trasse",
+      "kind": "setzt_voraus",
+      "note": "Kabeltrasse gehört zum Netzanschluss"
+    },
+    {
+      "from": "n-netzzusage",
+      "to": "n-trafo",
+      "kind": "setzt_voraus",
+      "note": "110-kV-Leitung ohne Trafo reicht nicht"
+    },
+    {
+      "from": "n-grenzgebiet",
+      "to": "n-netzzusage",
+      "kind": "verzoegert",
+      "note": "fast 9 Monate Abstimmung per E-Mail"
+    },
+    {
+      "from": "n-grenzgebiet",
+      "to": "n-pachtvertrag",
+      "kind": "verteuert",
+      "note": "die Pacht läuft während der Abstimmung weiter"
+    },
+    {
+      "from": "n-leitungskosten",
+      "to": "n-wirtschaftlichkeit",
+      "kind": "verteuert",
+      "note": "13 km bis zum Anschluss"
+    },
+    {
+      "from": "n-einspeisung100",
+      "to": "n-gemeinsamer-anschluss",
+      "kind": "schliesst_aus",
+      "note": "Überbauung scheitert"
+    },
+    {
+      "from": "n-gemeinsamer-anschluss",
+      "to": "n-netzbetreiber",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-gemeinsamer-anschluss",
+      "to": "n-leitungskosten",
+      "kind": "setzt_voraus",
+      "note": "Ziel ist, die Leitungskosten zu teilen"
+    },
+    {
+      "from": "n-trasse",
+      "to": "n-eigentuemer",
+      "kind": "setzt_voraus",
+      "note": "jedes Flurstück, ein Nein stoppt die Trasse"
+    },
+    {
+      "from": "n-gutachten",
+      "to": "n-ausweisung",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-brutperiode",
+      "to": "n-gutachten",
+      "kind": "verzoegert",
+      "note": "Ergebnis erst nach etwa einem Jahr"
+    },
+    {
+      "from": "n-gutachten",
+      "to": "n-wirtschaftlichkeit",
+      "kind": "verteuert",
+      "note": "schnell 150.000 €"
+    },
+    {
+      "from": "n-bimschg",
+      "to": "n-ausweisung",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-bimschg",
+      "to": "n-gutachten",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-ausweisung",
+      "to": "n-bimschg",
+      "kind": "verzoegert",
+      "note": "Antrag wird erst danach angenommen"
+    },
+    {
+      "from": "n-eeg",
+      "to": "n-bimschg",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-wirtschaftlichkeit",
+      "to": "n-eeg",
+      "kind": "setzt_voraus",
+      "note": "Zuschlagswert bestimmt den Erlös"
+    },
+    {
+      "from": "n-betriebsauflagen",
+      "to": "n-bimschg",
+      "kind": "setzt_voraus",
+      "note": "Auflagen im Betrieb"
+    },
+    {
+      "from": "n-betriebsauflagen",
+      "to": "n-wirtschaftlichkeit",
+      "kind": "verteuert",
+      "note": "Fledermaus-Abschaltung kostet 3–5 % Ertrag"
+    },
+    {
+      "from": "n-schutzgebiete",
+      "to": "n-betriebsauflagen",
+      "kind": "verteuert",
+      "note": "Schutzgebiet in der Nähe: Brutvögel, Fledermäuse"
+    },
+    {
+      "from": "n-transport",
+      "to": "n-transportgenehmigung",
+      "kind": "setzt_voraus"
+    },
+    {
+      "from": "n-transportgenehmigung",
+      "to": "n-gemeinde",
+      "kind": "setzt_voraus",
+      "note": "Ampeln, Leitplanken und Schilder in den Dörfern"
+    },
+    {
+      "from": "n-transport",
+      "to": "n-wirtschaftlichkeit",
+      "kind": "verteuert"
+    },
+    {
+      "from": "n-6b",
+      "to": "n-ausweisung",
+      "kind": "setzt_voraus",
+      "note": "gilt nur in Beschleunigungsgebieten"
+    },
+    {
+      "from": "n-6b",
+      "to": "n-gutachten",
+      "kind": "schliesst_aus",
+      "note": "Artenschutzprüfung entfällt im Beschleunigungsgebiet"
+    },
+    {
+      "from": "n-klagerisiko",
+      "to": "n-6b",
+      "kind": "setzt_voraus",
+      "note": "das Klagerisiko bleibt"
+    }
+  ]
+}
