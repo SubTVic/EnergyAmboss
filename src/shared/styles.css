@@ -334,3 +334,24 @@ input[type='range'] {
   margin: 0;
   accent-color: var(--line);
 }
+
+/* Handy: lange Wörter umbrechen, Überschriften kleiner, Rest scrollt innerhalb der Seite statt sie zu sprengen */
+h1,
+h2,
+h3 {
+  overflow-wrap: anywhere;
+}
+.mono {
+  overflow-wrap: anywhere;
+}
+.app-container {
+  overflow-x: auto;
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+}

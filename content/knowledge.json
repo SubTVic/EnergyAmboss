@@ -26,10 +26,8 @@
       "label": "Schutzgebiete",
       "kind": "risiko",
       "domain": "natur",
-      "summary": "Schutzgebiete scheiden Flächen in der Weißflächenanalyse aus; auch an ihrem Rand drohen später Gutachten- und Betriebsauflagen.",
-      "caseIds": [
-        "F7"
-      ]
+      "summary": "Schutzgebiete scheiden Flächen in der Weißflächenanalyse aus.",
+      "caseIds": []
     },
     {
       "id": "n-wald",
@@ -270,10 +268,11 @@
       "label": "Gemeinde und Rückhalt vor Ort",
       "kind": "akteur",
       "domain": "genehmigung",
-      "summary": "Dörfer entlang der Transportroute und Gemeinden mit Ortsdurchfahrten sind an Genehmigungen und Akzeptanz beteiligt.",
+      "summary": "Dörfer entlang der Transportroute: Gemeinden sind an der Transportgenehmigung beteiligt (F6 nennt die Gemeinde als berührten Bereich).",
       "caseIds": [
         "F6"
-      ]
+      ],
+      "verify": true
     },
     {
       "id": "n-betriebsauflagen",
@@ -491,12 +490,6 @@
       "to": "n-wirtschaftlichkeit",
       "kind": "verteuert",
       "note": "Fledermaus-Abschaltung kostet 3–5 % Ertrag"
-    },
-    {
-      "from": "n-schutzgebiete",
-      "to": "n-betriebsauflagen",
-      "kind": "verteuert",
-      "note": "Schutzgebiet in der Nähe: Brutvögel, Fledermäuse"
     },
     {
       "from": "n-transport",
