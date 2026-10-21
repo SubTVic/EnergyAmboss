@@ -10,6 +10,9 @@ export interface GraphNode {
   borderWidth?: number;
   shape?: string;
   dashed?: boolean;
+  /** Feste Position (für layout: { name: 'preset' }). */
+  x?: number;
+  y?: number;
 }
 
 export interface GraphEdge {
@@ -78,6 +81,7 @@ export function CytoGraph({ nodes, edges, layout = DEFAULT_LAYOUT, height = 340,
   const elements = useMemo(
     () => [
       ...nodes.map((n) => ({
+        ...(n.x !== undefined && n.y !== undefined ? { position: { x: n.x, y: n.y } } : {}),
         data: {
           id: n.id,
           label: n.label,

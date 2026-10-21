@@ -1,6 +1,6 @@
 // Spieler-Bots für Tests und Balance-Prüfung der Engine (nicht Teil der App).
 import { blockedReason, MAX_ACTIONS, playRound } from './engine';
-import { Rng } from './rng';
+import { Rng } from '../shared/rng';
 import type { ActionCard, ActionPick, GameData, GameState } from './types';
 
 type Policy = (state: GameState, data: GameData, rng: Rng) => ActionPick[];

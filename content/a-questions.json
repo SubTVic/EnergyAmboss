@@ -1,0 +1,480 @@
+[
+  {
+    "id": "a-s1",
+    "type": "single",
+    "caseId": "F1",
+    "domains": ["netz", "genehmigung", "finanzen"],
+    "nodeIds": ["n-netzabfrage", "n-netzzusage", "n-bimschg", "n-wirtschaftlichkeit"],
+    "stem": "Die Genehmigung liegt vor, doch der Netzanschluss klappt nicht. Der Verlust ist siebenstellig. Was hätte den Fehler am ehesten verhindert?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Die Netzbedingungen ganz am Anfang abfragen und eine belastbare Zusage einholen, noch vor der Ausweisung.",
+        "correct": true,
+        "explanation": "Im Ablauf des Projektierers werden Leitungen geprüft und Netzbedingungen abgefragt, ganz am Anfang und noch vor der Ausweisung. Eine belastbare Zusage schließt die Lücke, auf der sonst Netzanschluss und Projektziel ruhen."
+      },
+      {
+        "id": "b",
+        "text": "Mehr Flächen sichern, damit eine davon an einem anderen Umspannwerk liegt.",
+        "correct": false,
+        "explanation": "Mehr Flächen helfen gegen das Ausweisungsrisiko (F2). Sie lösen nicht das Problem, dass die Netzkapazität für dieses Projekt fehlt."
+      },
+      {
+        "id": "c",
+        "text": "Das Naturschutzgutachten früher beauftragen.",
+        "correct": false,
+        "explanation": "Das Gutachten betrifft den Artenschutz: schnell 150.000 €, Ergebnis nach einer Brutperiode. Mit dem Netzanschluss hat es nichts zu tun."
+      },
+      {
+        "id": "d",
+        "text": "Die Genehmigung schneller beantragen.",
+        "correct": false,
+        "explanation": "Die Genehmigung liegt ja vor. Der Fehler liegt auf der Netzseite, nicht beim Antrag."
+      },
+      {
+        "id": "e",
+        "text": "Erst nach der Genehmigung beim Netzbetreiber nachfragen.",
+        "correct": false,
+        "explanation": "Genau das ist der Fehler: Wer erst nach der Genehmigung nach dem Netz fragt, riskiert, dass der Anschluss scheitert."
+      }
+    ]
+  },
+  {
+    "id": "a-s2",
+    "type": "single",
+    "caseId": "F2",
+    "domains": ["vertraege", "recht", "finanzen"],
+    "nodeIds": ["n-pachtvertrag", "n-konkurrent", "n-ausweisung", "n-versorger"],
+    "stem": "Ein Projektierer sichert mehr Flächen, als er braucht, und das schon vor der Ausweisung. Welcher Grund steht im Fallpaket dahinter?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Konkurrenten würden die Flächen sonst wegnehmen, und nicht alle Flächen werden ausgewiesen.",
+        "correct": true,
+        "explanation": "Im Interview werden Flächen lieber vor der Ausweisung gesichert, weil Konkurrenten sie sonst wegnehmen. Mehr Flächen zu sichern, in der Hoffnung, dass einige ausgewiesen werden, ist Portfolio-Denken."
+      },
+      {
+        "id": "b",
+        "text": "Das Landratsamt nimmt den Antrag nur an, wenn die Fläche vorher gesichert ist.",
+        "correct": false,
+        "explanation": "Viele Landratsämter nehmen den Antrag erst nach der Ausweisung an, nicht davor."
+      },
+      {
+        "id": "c",
+        "text": "Die Pacht fällt erst nach der Ausweisung an, das Risiko ist also gering.",
+        "correct": false,
+        "explanation": "Große Versorger zahlen 5–7 Jahre rund 50.000 € pro Jahr, auch ohne Anschluss. Pacht läuft von Anfang an und ist ein echtes Kostenrisiko."
+      },
+      {
+        "id": "d",
+        "text": "Die Netzabfrage ist erst mit gesicherter Fläche möglich.",
+        "correct": false,
+        "explanation": "Laut Ablauf kommt die Netzabfrage ganz am Anfang, noch vor dem Sichern der Flächen."
+      },
+      {
+        "id": "e",
+        "text": "Eigentümer verpachten nach der Ausweisung grundsätzlich nicht mehr.",
+        "correct": false,
+        "explanation": "Das steht nicht im Fallpaket. Belegt ist nur, dass Konkurrenten Flächen wegnehmen, die nicht rechtzeitig gesichert sind."
+      }
+    ]
+  },
+  {
+    "id": "a-s3",
+    "type": "single",
+    "caseId": "F3",
+    "domains": ["vertraege", "netz"],
+    "nodeIds": ["n-trasse", "n-eigentuemer", "n-netzzusage"],
+    "stem": "Ein Eigentümer verweigert ein Flurstück auf der geplanten Kabeltrasse. Was folgt daraus?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Die Trasse ist gestoppt, denn jedes Flurstück entlang des Kabels muss gesichert sein.",
+        "correct": true,
+        "explanation": "So steht es im Fall: Ein einziges Nein stoppt die Trasse. Auch ein Mast näher am Umspannwerk wurde verweigert, „falls sie selber mal bauen wollen“."
+      },
+      {
+        "id": "b",
+        "text": "Die Mehrheit der Eigentümer genügt, das eine Flurstück lässt sich überstimmen.",
+        "correct": false,
+        "explanation": "Ein Nein stoppt die Trasse. Eine Mehrheit hilft nicht."
+      },
+      {
+        "id": "c",
+        "text": "Der Netzbetreiber besorgt das Flurstück.",
+        "correct": false,
+        "explanation": "Davon ist im Fall nicht die Rede. Die Trasse ist Sache des Projektierers."
+      },
+      {
+        "id": "d",
+        "text": "Nur der Mast ist betroffen; das Kabel darf trotzdem über das Flurstück laufen.",
+        "correct": false,
+        "explanation": "Jedes Flurstück muss gesichert sein. Schon ein einzelner Punkt kann die Trasse blockieren."
+      },
+      {
+        "id": "e",
+        "text": "Das betrifft nur den Netzanschluss, nicht die Wirtschaftlichkeit des Projekts.",
+        "correct": false,
+        "explanation": "Ohne Trasse kein Anschluss, ohne Anschluss kein Ertrag. In Prototyp B brechen Netzanschluss und Projektziel."
+      }
+    ]
+  },
+  {
+    "id": "a-s4",
+    "type": "single",
+    "caseId": "F5",
+    "domains": ["technik", "netz", "finanzen"],
+    "nodeIds": ["n-einspeisung100", "n-gemeinsamer-anschluss", "n-leitungskosten"],
+    "stem": "Ein PV-Projekt liegt 13 km vom Umspannwerk entfernt. Der Projektierer sucht Nachbaranlagen für einen gemeinsamen Anschluss, aber die Überbauung scheitert. Warum?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Der Netzbetreiber rechnet mit 100 % Einspeisung.",
+        "correct": true,
+        "explanation": "So steht es im Fall F5: Weil der Netzbetreiber mit 100 % Einspeisung rechnet, scheitert die Überbauung."
+      },
+      {
+        "id": "b",
+        "text": "Überbauung ist für PV-Anlagen gesetzlich verboten.",
+        "correct": false,
+        "explanation": "Davon steht nichts im Fall. Der Grund ist die Annahme des Netzbetreibers."
+      },
+      {
+        "id": "c",
+        "text": "Die Leitung wäre mit sechsstelligen Kosten je Kilometer zu teuer.",
+        "correct": false,
+        "explanation": "Die Kosten sind das Motiv für den gemeinsamen Anschluss, nicht der Grund für das Scheitern der Überbauung."
+      },
+      {
+        "id": "d",
+        "text": "Nachbaranlagen dürfen nicht miteinander kooperieren.",
+        "correct": false,
+        "explanation": "Der Projektierer sucht Nachbaranlagen gerade für einen gemeinsamen Anschluss. Kooperation ist möglich."
+      },
+      {
+        "id": "e",
+        "text": "Der Netzbetreiber rechnet nur mit der Hälfte der installierten Leistung.",
+        "correct": false,
+        "explanation": "Er rechnet mit 100 % Einspeisung, deshalb scheitert die Überbauung."
+      }
+    ]
+  },
+  {
+    "id": "a-s5",
+    "type": "single",
+    "caseId": "F6",
+    "domains": ["logistik", "genehmigung"],
+    "nodeIds": ["n-transport", "n-transportgenehmigung", "n-gemeinde"],
+    "stem": "Die Flügel kommen per Tieflader über die Autobahn, dann per Blade-Lifter durch die Dörfer. Was ist laut Fall genehmigungspflichtig?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ampeln drehen sowie Leitplanken und Schilder entfernen.",
+        "correct": true,
+        "explanation": "So steht es im Fall F6: Ampeln drehen, Leitplanken und Schilder entfernen ist alles genehmigungspflichtig."
+      },
+      {
+        "id": "b",
+        "text": "Nur die Fahrt des Tiefladers auf der Autobahn.",
+        "correct": false,
+        "explanation": "Genehmigungspflichtig sind die Eingriffe beim Transport durch die Dörfer."
+      },
+      {
+        "id": "c",
+        "text": "Nichts: Der Blade-Lifter kommt ohne Eingriffe durch die Dörfer.",
+        "correct": false,
+        "explanation": "Gerade der Blade-Lifter braucht in den Dörfern Eingriffe: Ampeln, Leitplanken, Schilder."
+      },
+      {
+        "id": "d",
+        "text": "Nur die Zustimmung der Gemeinde, sonst nichts.",
+        "correct": false,
+        "explanation": "Im Fall sind mehrere Eingriffe genehmigungspflichtig, nicht nur eine Zustimmung."
+      },
+      {
+        "id": "e",
+        "text": "Der Transport ist erst nach dem Zuschlag in der EEG-Ausschreibung genehmigungspflichtig.",
+        "correct": false,
+        "explanation": "Der Fall beschreibt die Genehmigungen für Eingriffe beim Transport. Die EEG-Ausschreibung hat damit nichts zu tun."
+      }
+    ]
+  },
+  {
+    "id": "a-s6",
+    "type": "single",
+    "caseId": "F7",
+    "domains": ["natur", "technik", "finanzen"],
+    "nodeIds": ["n-betriebsauflagen", "n-wirtschaftlichkeit", "n-gutachten"],
+    "stem": "Im Betrieb gibt es Auflagen. Welche Zuordnung von Auflage und Grund stimmt laut Fall?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nachtabschaltung: Einhaltung von Schallgrenzwerten.",
+        "correct": true,
+        "explanation": "So steht es im Fall F7. Dazu kommen die Fledermaus-Abschaltung (3–5 % Ertrag) und Kameras, die bei Brutvögeln abschalten."
+      },
+      {
+        "id": "b",
+        "text": "Kameras schalten ab, wenn Fledermäuse fliegen.",
+        "correct": false,
+        "explanation": "Die Kameras schalten bei Brutvögeln ab. Die Fledermaus-Abschaltung ist eine eigene Auflage."
+      },
+      {
+        "id": "c",
+        "text": "Die Fledermaus-Abschaltung kostet etwa 30–50 % Ertrag.",
+        "correct": false,
+        "explanation": "Sie kostet 3–5 % Ertrag. Das ist spürbar, aber eine andere Größenordnung."
+      },
+      {
+        "id": "d",
+        "text": "Die Nachtabschaltung schützt Brutvögel.",
+        "correct": false,
+        "explanation": "Die Nachtabschaltung dient den Schallgrenzwerten."
+      },
+      {
+        "id": "e",
+        "text": "Die Fledermaus-Abschaltung kostet keinen Ertrag.",
+        "correct": false,
+        "explanation": "Sie kostet 3–5 % Ertrag und gehört in die Wirtschaftlichkeitsrechnung."
+      }
+    ]
+  },
+  {
+    "id": "a-s7",
+    "type": "single",
+    "caseId": "F8",
+    "domains": ["netz", "technik"],
+    "nodeIds": ["n-trafo", "n-netzzusage", "n-kapazitaet"],
+    "stem": "An einem ehemaligen Kohlekraftwerk an der polnischen Grenze liegt eine 110-kV-Leitung. Welche Information entscheidet als Nächstes über den Netzanschluss?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ob ein Transformator vorhanden ist; im Fall fehlt er.",
+        "correct": true,
+        "explanation": "Eine vorhandene 110-kV-Leitung genügt nicht: Im Fall F8 fehlt der Transformator."
+      },
+      {
+        "id": "b",
+        "text": "Nichts mehr: Eine 110-kV-Leitung bedeutet einen gesicherten Anschluss.",
+        "correct": false,
+        "explanation": "Eine Leitung ohne Transformator ist noch kein Anschluss."
+      },
+      {
+        "id": "c",
+        "text": "Ob das Naturschutzgutachten 150.000 € kostet.",
+        "correct": false,
+        "explanation": "Das Gutachten betrifft den Artenschutz, nicht den Netzanschluss."
+      },
+      {
+        "id": "d",
+        "text": "Ob der Standort in einem Schutzgebiet liegt.",
+        "correct": false,
+        "explanation": "Das ist eine andere Frage der Weißflächenanalyse. Im Fall steht der fehlende Transformator im Mittelpunkt."
+      },
+      {
+        "id": "e",
+        "text": "Ob die Leitung 13 km lang ist.",
+        "correct": false,
+        "explanation": "Die 13 km gehören zum PV-Fall F5, nicht zu F8."
+      }
+    ]
+  },
+  {
+    "id": "a-s8",
+    "type": "single",
+    "caseId": "F9",
+    "domains": ["recht", "natur", "vertraege"],
+    "nodeIds": ["n-6b", "n-gutachten", "n-klagerisiko"],
+    "stem": "Was entfällt in Beschleunigungsgebieten nach § 6b WindBG?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Die UVP und die Artenschutzprüfung.",
+        "correct": true,
+        "explanation": "So steht es in der Recherche zu F9. Gutachtenumfang, Zeitplan und Flächenwert ändern sich; das Klagerisiko bleibt."
+      },
+      {
+        "id": "b",
+        "text": "Das Klagerisiko.",
+        "correct": false,
+        "explanation": "Das Klagerisiko bleibt auch im Beschleunigungsgebiet."
+      },
+      {
+        "id": "c",
+        "text": "Die EEG-Ausschreibung.",
+        "correct": false,
+        "explanation": "Davon steht nichts im Fall. Die Ausschreibung bleibt Teil des Ablaufs."
+      },
+      {
+        "id": "d",
+        "text": "Die Prüfung des Netzanschlusses.",
+        "correct": false,
+        "explanation": "Der Netzanschluss ist ein eigenes Risiko und bleibt bestehen (F1)."
+      },
+      {
+        "id": "e",
+        "text": "Die Beteiligung der rund 25 Ämter.",
+        "correct": false,
+        "explanation": "Im Fallpaket entfallen UVP und Artenschutzprüfung. Die Beteiligung der Ämter wird nicht genannt."
+      }
+    ]
+  },
+  {
+    "id": "a-s9",
+    "type": "single",
+    "caseId": "F4",
+    "domains": ["netz", "vertraege", "finanzen"],
+    "nodeIds": ["n-grenzgebiet", "n-pachtvertrag", "n-netzbetreiber"],
+    "stem": "Die Anlage liegt im Grenzgebiet zweier Netzbetreiber. Die Abstimmung per E-Mail dauert fast 9 Monate. Was bedeutet das wirtschaftlich?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Die Pacht läuft in dieser Zeit weiter, und der Zeitplan verschiebt sich.",
+        "correct": true,
+        "explanation": "Anträge laufen bei beiden Betreibern, die Abstimmung dauerte fast 9 Monate, während die Pacht weiterlief."
+      },
+      {
+        "id": "b",
+        "text": "Nichts: Die Abstimmung kostet nur die Netzbetreiber Zeit.",
+        "correct": false,
+        "explanation": "Sie kostet auch den Projektierer: Zeitplan und Pacht."
+      },
+      {
+        "id": "c",
+        "text": "Die Pacht ruht, bis beide Betreiber geantwortet haben.",
+        "correct": false,
+        "explanation": "Die Pacht läuft weiter."
+      },
+      {
+        "id": "d",
+        "text": "Der Anschluss ist damit ausgeschlossen.",
+        "correct": false,
+        "explanation": "Ausgeschlossen ist der Anschluss nicht, aber Zeitplan und Kosten leiden."
+      },
+      {
+        "id": "e",
+        "text": "Nur einer der beiden Betreiber muss zustimmen.",
+        "correct": false,
+        "explanation": "Anträge laufen bei beiden Netzbetreibern."
+      }
+    ]
+  },
+  {
+    "id": "a-sct1",
+    "type": "sct",
+    "caseId": "F4",
+    "domains": ["netz", "vertraege"],
+    "nodeIds": ["n-grenzgebiet", "n-pachtvertrag", "n-eeg"],
+    "hypothesis": "Der Netzanschluss am Umspannwerk in 4 km ist realistisch.",
+    "newInfo": "Die Fläche liegt im Grenzgebiet zweier Netzbetreiber.",
+    "explanation": "Beide Betreiber müssen sich abstimmen; im Interview dauerte das fast 9 Monate, während die Pacht weiterlief. Ausgeschlossen ist der Anschluss nicht, aber Zeitplan und Kosten leiden. Das Panel landet vermutlich bei −1.",
+    "seedPanel": [1, 6, 3, 0, 0]
+  },
+  {
+    "id": "a-sct2",
+    "type": "sct",
+    "caseId": "F1",
+    "domains": ["netz", "finanzen"],
+    "nodeIds": ["n-kapazitaet", "n-netzzusage", "n-wirtschaftlichkeit"],
+    "hypothesis": "Das Projekt lässt sich nach der Genehmigung wirtschaftlich bauen.",
+    "newInfo": "Die Netzkapazität steht nur auf einer mündlichen Auskunft.",
+    "explanation": "Eine mündliche Auskunft ist keine belastbare Zusage. Ohne sie kann der Anschluss nach der Genehmigung scheitern (F1, siebenstelliger Verlust). Die Annahme wird stark geschwächt, aber nicht widerlegt, denn die Auskunft kann sich bestätigen.",
+    "seedPanel": [6, 3, 1, 0, 0]
+  },
+  {
+    "id": "a-sct3",
+    "type": "sct",
+    "caseId": "F5",
+    "domains": ["netz", "technik"],
+    "nodeIds": ["n-gemeinsamer-anschluss", "n-einspeisung100", "n-leitungskosten"],
+    "hypothesis": "Ein gemeinsamer Anschluss mit einer Nachbaranlage senkt die Leitungskosten je Anlage.",
+    "newInfo": "Der Netzbetreiber rechnet mit 100 % Einspeisung beider Anlagen.",
+    "explanation": "Das schwächt die Annahme: Der Netzbetreiber plant jede Anlage mit voller Einspeisung, die Überbauung scheitert (F5). Der erhoffte Kostenvorteil gegenüber einer Einzelleitung schrumpft.",
+    "seedPanel": [4, 5, 1, 0, 0]
+  },
+  {
+    "id": "a-sct4",
+    "type": "sct",
+    "caseId": "F3",
+    "domains": ["vertraege", "netz"],
+    "nodeIds": ["n-trasse", "n-eigentuemer", "n-netzzusage"],
+    "hypothesis": "Die Kabeltrasse zum Umspannwerk ist gesichert.",
+    "newInfo": "Ein Eigentümer verweigert einen Mast näher am Umspannwerk.",
+    "explanation": "Jedes Flurstück entlang des Kabels muss gesichert sein, ein Nein stoppt die Trasse (F3). Schon ein einzelner verweigerter Mast schwächt die Annahme stark.",
+    "seedPanel": [6, 3, 1, 0, 0]
+  },
+  {
+    "id": "a-sct5",
+    "type": "sct",
+    "caseId": "F7",
+    "domains": ["finanzen", "natur"],
+    "nodeIds": ["n-wirtschaftlichkeit", "n-betriebsauflagen"],
+    "hypothesis": "Das Projekt trägt wirtschaftlich.",
+    "newInfo": "Die Fledermaus-Abschaltung kostet 3–5 % Ertrag.",
+    "explanation": "3–5 % Ertrag sind spürbar, aber für sich genommen kein Todesurteil. Die Annahme wird leicht bis mäßig geschwächt. Wichtig ist, die Abschläge früh in die Wirtschaftlichkeitsrechnung aufzunehmen.",
+    "seedPanel": [1, 6, 3, 0, 0]
+  },
+  {
+    "id": "a-sct6",
+    "type": "sct",
+    "caseId": "F9",
+    "domains": ["recht", "natur"],
+    "nodeIds": ["n-6b", "n-gutachten", "n-klagerisiko", "n-brutperiode"],
+    "hypothesis": "Der Zeitplan von etwa fünf Jahren bis zur Anlage ist zu knapp.",
+    "newInfo": "Die Fläche liegt in einem Beschleunigungsgebiet nach § 6b WindBG.",
+    "explanation": "UVP und Artenschutzprüfung entfallen, der Zeitplan ändert sich. Das spricht eher für schneller, aber das Klagerisiko bleibt. Die Annahme „zu knapp“ wird deshalb geschwächt, nicht widerlegt.",
+    "seedPanel": [1, 6, 3, 0, 0]
+  },
+  {
+    "id": "a-sct7",
+    "type": "sct",
+    "caseId": "F2",
+    "domains": ["vertraege", "finanzen"],
+    "nodeIds": ["n-pachtvertrag", "n-versorger", "n-konkurrent", "n-ausweisung"],
+    "hypothesis": "Mehr Flächen vor der Ausweisung zu sichern, lohnt sich.",
+    "newInfo": "Ein großer Versorger zahlt 5–7 Jahre rund 50.000 € Pacht pro Jahr, auch ohne Anschluss.",
+    "explanation": "Der Versorger macht Flächen teurer und nimmt sie weg, wenn du nicht rechtzeitig sicherst. Das stärkt das frühe Sichern als Schutz, verteuert aber die Pacht, die bei dir ohne Anschluss weiterläuft. Die Wirkung ist gemischt.",
+    "seedPanel": [0, 2, 5, 3, 0]
+  },
+  {
+    "id": "a-sct8",
+    "type": "sct",
+    "caseId": "F6",
+    "domains": ["logistik", "genehmigung"],
+    "nodeIds": ["n-transport", "n-transportgenehmigung", "n-gemeinde"],
+    "hypothesis": "Die Zufahrt zur Fläche ist unproblematisch, weil die Autobahn nah liegt.",
+    "newInfo": "Der letzte Abschnitt führt durch Dörfer; Ampeln drehen, Leitplanken und Schilder entfernen ist genehmigungspflichtig.",
+    "explanation": "Der Tieflader fährt über die Autobahn, im letzten Abschnitt braucht der Blade-Lifter aber Genehmigungen und Eingriffe (F6). Die Annahme wird stark geschwächt.",
+    "seedPanel": [5, 4, 1, 0, 0]
+  },
+  {
+    "id": "a-c1",
+    "type": "cascade",
+    "caseId": "F9",
+    "domains": ["recht", "natur", "vertraege"],
+    "nodeIds": ["n-6b", "n-gutachten", "n-pachtvertrag"],
+    "stem": "§ 6b WindBG tritt für deine Flächen in Kraft: In Beschleunigungsgebieten entfallen UVP und Artenschutzprüfung. Welche drei Projektbereiche ändert diese Information am stärksten?",
+    "correctDomains": ["recht", "natur", "vertraege"],
+    "explanation": "Recht (neue Vorschrift mit verbleibendem Klagerisiko), Natur (UVP und Artenschutzprüfung entfallen, der Gutachtenumfang ändert sich) und Verträge (Flächenwert und Zeitplan ändern sich, Pacht und Klauseln sind neu zu bewerten). Das Fallpaket nennt Recht, Natur, Verträge und Zeitplan."
+  },
+  {
+    "id": "a-c2",
+    "type": "cascade",
+    "caseId": "F1",
+    "domains": ["netz", "genehmigung", "finanzen"],
+    "nodeIds": ["n-netzzusage", "n-bimschg", "n-wirtschaftlichkeit"],
+    "stem": "Die Genehmigung liegt vor, aber der Netzanschluss scheitert. Welche drei Projektbereiche trifft das am stärksten?",
+    "correctDomains": ["netz", "genehmigung", "finanzen"],
+    "explanation": "Netz (der Anschluss fehlt), Genehmigung (liegt vor, nützt ohne Anschluss aber nichts) und Finanzen (der Verlust ist siebenstellig)."
+  },
+  {
+    "id": "a-c3",
+    "type": "cascade",
+    "caseId": "F7",
+    "domains": ["natur", "technik", "finanzen"],
+    "nodeIds": ["n-betriebsauflagen", "n-gutachten", "n-wirtschaftlichkeit"],
+    "stem": "Mit der Genehmigung kommen Betriebsauflagen: Fledermaus-Abschaltung, Nachtabschaltung für Schallgrenzwerte, Kameras, die bei Brutvögeln abschalten. Welche drei Projektbereiche ändern sich am stärksten?",
+    "correctDomains": ["natur", "technik", "finanzen"],
+    "explanation": "Natur (Fledermäuse und Brutvögel lösen die Abschaltungen aus), Technik (Anlagensteuerung, Nachtabschaltung, Kameras) und Finanzen (3–5 % Ertrag gehen verloren)."
+  }
+]

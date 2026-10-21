@@ -1,7 +1,7 @@
 // Regel-Engine für Prototyp D (Projekt-Planspiel): reine Funktionen mit Seed, keine Oberfläche.
 // Würfel und Ereignisse nutzen eine einzige Zufallsquelle (mulberry32); gleicher Seed und gleiche
 // Entscheidungen ergeben denselben Verlauf.
-import { Rng } from './rng';
+import { Rng } from '../shared/rng';
 import type {
   ActionCard,
   Condition,
