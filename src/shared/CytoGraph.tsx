@@ -35,7 +35,7 @@ const STYLE: cytoscape.StylesheetJson = [
     style: {
       label: 'data(label)',
       'text-wrap': 'wrap',
-      'text-max-width': '110px',
+      'text-max-width': '116px',
       'font-size': 10,
       'text-valign': 'center',
       'text-halign': 'center',
@@ -45,9 +45,8 @@ const STYLE: cytoscape.StylesheetJson = [
       'border-width': 'data(borderWidth)',
       'border-color': 'data(border)',
       'border-style': 'data(borderStyle)' as unknown as 'solid',
-      width: 'label',
-      height: 'label',
-      padding: '8px',
+      width: 128,
+      height: 48,
     },
   },
   {

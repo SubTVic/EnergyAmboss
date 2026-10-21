@@ -1,0 +1,25 @@
+[
+  {
+    "id": "law-6b-windbg",
+    "title": "§ 6b WindBG gilt für die Fläche (F9)",
+    "caseId": "F9",
+    "ops": [
+      { "op": "setStatus", "nodeId": "a-artenschutz", "status": "entfallen" },
+      {
+        "op": "addNode",
+        "node": {
+          "id": "a-klagerisiko",
+          "parentId": "t-genehmigung",
+          "title": "Gebietsausweisung hält einer Klage stand",
+          "kind": "annahme",
+          "ownStatus": "sorry",
+          "deps": [],
+          "owner": "Jurist",
+          "damageIfWrong": 800000,
+          "knowledgeIds": ["n-klagerisiko", "n-6b"]
+        }
+      }
+    ],
+    "explanation": "In Beschleunigungsgebieten entfallen UVP und Artenschutzprüfung. Die Artenschutz-Kartierung wird deshalb überflüssig; dafür wird der neue Knoten „Klagerisiko“ offen, denn das Klagerisiko bleibt. Die Genehmigung ist damit nicht mehr belegt, und der EEG-Zuschlag ist blockiert."
+  }
+]

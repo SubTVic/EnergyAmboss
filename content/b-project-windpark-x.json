@@ -1,0 +1,175 @@
+{
+  "id": "windpark-x",
+  "name": "Windpark X (Demo)",
+  "applied": [],
+  "nodes": [
+    {
+      "id": "ziel",
+      "parentId": null,
+      "title": "Windpark X geht bis 2030 wirtschaftlich in Betrieb",
+      "kind": "ziel",
+      "deps": [],
+      "knowledgeIds": ["n-wirtschaftlichkeit"]
+    },
+    {
+      "id": "t-flaeche",
+      "parentId": "ziel",
+      "title": "Fläche gesichert",
+      "kind": "teilziel",
+      "deps": []
+    },
+    {
+      "id": "a-pacht",
+      "parentId": "t-flaeche",
+      "title": "Pachtverträge unterschrieben",
+      "kind": "annahme",
+      "ownStatus": "belegt",
+      "deps": [],
+      "evidence": "Pachtverträge unterschrieben",
+      "owner": "Jurist",
+      "knowledgeIds": ["n-pachtvertrag"]
+    },
+    {
+      "id": "t-netz",
+      "parentId": "ziel",
+      "title": "Netzanschluss",
+      "kind": "teilziel",
+      "deps": [],
+      "knowledgeIds": ["n-netzzusage"]
+    },
+    {
+      "id": "a-kapazitaet",
+      "parentId": "t-netz",
+      "title": "Kapazität am Umspannwerk",
+      "kind": "annahme",
+      "ownStatus": "sorry",
+      "deps": [],
+      "evidence": "Nur eine mündliche Auskunft, kein Dokument",
+      "owner": "Elektroplaner",
+      "damageIfWrong": 1000000,
+      "knowledgeIds": ["n-kapazitaet", "n-netzzusage"]
+    },
+    {
+      "id": "a-trasse",
+      "parentId": "t-netz",
+      "title": "Trasse über alle Flurstücke",
+      "kind": "annahme",
+      "ownStatus": "sorry",
+      "deps": [],
+      "evidence": "Noch nicht alle Flurstücke entlang des Kabels gesichert",
+      "owner": "Projektleiter",
+      "damageIfWrong": 500000,
+      "knowledgeIds": ["n-trasse", "n-eigentuemer"]
+    },
+    {
+      "id": "t-genehmigung",
+      "parentId": "ziel",
+      "title": "Genehmigung",
+      "kind": "teilziel",
+      "deps": []
+    },
+    {
+      "id": "a-bimschg",
+      "parentId": "t-genehmigung",
+      "title": "Genehmigung nach Immissionsschutzrecht erteilt",
+      "kind": "annahme",
+      "ownStatus": "belegt",
+      "deps": [],
+      "evidence": "Bescheid liegt vor",
+      "owner": "Jurist",
+      "knowledgeIds": ["n-bimschg"]
+    },
+    {
+      "id": "a-artenschutz",
+      "parentId": "t-genehmigung",
+      "title": "Artenschutz-Kartierung",
+      "kind": "annahme",
+      "ownStatus": "belegt",
+      "deps": [],
+      "evidence": "Gutachten nach der Brutperiode liegt vor",
+      "owner": "Gutachter",
+      "knowledgeIds": ["n-gutachten", "n-brutperiode"]
+    },
+    {
+      "id": "s-eeg",
+      "parentId": "ziel",
+      "title": "EEG-Zuschlag",
+      "kind": "schritt",
+      "ownStatus": "sorry",
+      "deps": ["t-genehmigung"],
+      "owner": "Projektleiter",
+      "knowledgeIds": ["n-eeg"]
+    },
+    {
+      "id": "a-wirtschaft",
+      "parentId": "ziel",
+      "title": "Wirtschaftlichkeit nach Betriebsauflagen",
+      "kind": "annahme",
+      "ownStatus": "in_arbeit",
+      "deps": [],
+      "evidence": "Ertragsrechnung läuft; die Fledermaus-Abschaltung kostet 3–5 % Ertrag",
+      "owner": "Controlling",
+      "knowledgeIds": ["n-wirtschaftlichkeit", "n-betriebsauflagen"]
+    },
+    {
+      "id": "alt-trasse",
+      "parentId": "t-netz",
+      "title": "Andere Trasse",
+      "kind": "alternative",
+      "alternativeFor": "a-trasse",
+      "ownStatus": "sorry",
+      "deps": [],
+      "hidden": true,
+      "owner": "Projektleiter",
+      "damageIfWrong": 400000,
+      "knowledgeIds": ["n-trasse"]
+    },
+    {
+      "id": "alt-mast",
+      "parentId": "t-netz",
+      "title": "Anderer Mast (näher am Umspannwerk)",
+      "kind": "alternative",
+      "alternativeFor": "a-trasse",
+      "ownStatus": "sorry",
+      "deps": [],
+      "hidden": true,
+      "owner": "Elektroplaner",
+      "damageIfWrong": 300000,
+      "knowledgeIds": ["n-trasse", "n-eigentuemer"]
+    },
+    {
+      "id": "alt-gemeinsam",
+      "parentId": "t-netz",
+      "title": "Gemeinsamer Anschluss mit Nachbaranlage (F5)",
+      "kind": "alternative",
+      "alternativeFor": "a-trasse",
+      "ownStatus": "sorry",
+      "deps": [],
+      "hidden": true,
+      "owner": "Elektroplaner",
+      "damageIfWrong": 600000,
+      "knowledgeIds": ["n-gemeinsamer-anschluss", "n-einspeisung100"]
+    }
+  ],
+  "events": [
+    {
+      "id": "ev-f3",
+      "title": "Eigentümer verweigert Flurstück (F3)",
+      "caseId": "F3",
+      "ops": [
+        { "op": "setStatus", "nodeId": "a-trasse", "status": "widerlegt" },
+        { "op": "reveal", "nodeId": "alt-trasse" },
+        { "op": "reveal", "nodeId": "alt-mast" },
+        { "op": "reveal", "nodeId": "alt-gemeinsam" }
+      ],
+      "explanation": "Ein Eigentümer verweigert ein Flurstück auf der Trasse; ein Nein stoppt die Trasse. Der Knoten wird rot, Netzanschluss und Ziel brechen. Der Baum zeigt drei Alternativen: andere Trasse, anderer Mast, gemeinsamer Anschluss mit einer Nachbaranlage."
+    },
+    {
+      "id": "ev-f1",
+      "title": "Netzkapazität stellt sich als falsch heraus (F1)",
+      "caseId": "F1",
+      "ops": [{ "op": "setStatus", "nodeId": "a-kapazitaet", "status": "widerlegt" }],
+      "explanation": "Die mündliche Auskunft zur Kapazität am Umspannwerk hält nicht: Genehmigung da, Anschluss weg. Genau dieser Fall hat im Interview einen siebenstelligen Verlust ausgelöst."
+    }
+  ]
+}
