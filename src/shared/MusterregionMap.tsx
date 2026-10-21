@@ -40,11 +40,11 @@ export function MusterregionMap({ fill, caption, highlighted, selected, onSiteCl
             return (
               <g key={a.id}>
                 <polygon points={toPoints(a.polygon)} fill="#ddd" stroke="#777" strokeDasharray="6 4" />
-                <text x={20} y={346} fontSize="14" fill="#555">
-                  Netzbetreiber Nord
+                <text x={680} y={362} fontSize="14" fill="#555">
+                  ↑ Netzbetreiber Nord
                 </text>
-                <text x={20} y={384} fontSize="14" fill="#555" dy="16">
-                  Netzbetreiber Süd
+                <text x={680} y={408} fontSize="14" fill="#555">
+                  ↓ Netzbetreiber Süd
                 </text>
               </g>
             );

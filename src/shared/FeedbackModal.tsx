@@ -74,7 +74,7 @@ export function FeedbackModal({ proto, onClose }: Props) {
               <legend>Realismus: Stimmt das mit deiner Praxis überein?</legend>
               <div className="flex">
                 {[1, 2, 3, 4, 5].map((n) => (
-                  <label key={n} className="paper-radio">
+                  <label key={n} className="choice">
                     <input type="radio" name="realism" checked={realism === n} onChange={() => setRealism(n)} />
                     <span>{n}</span>
                   </label>
@@ -89,11 +89,11 @@ export function FeedbackModal({ proto, onClose }: Props) {
             <fieldset>
               <legend>Wiederkehr: Würdest du es nächste Woche wieder öffnen?</legend>
               <div className="flex">
-                <label className="paper-radio">
+                <label className="choice">
                   <input type="radio" name="ret" checked={wouldReturn === true} onChange={() => setWouldReturn(true)} />
                   <span>ja</span>
                 </label>
-                <label className="paper-radio">
+                <label className="choice">
                   <input type="radio" name="ret" checked={wouldReturn === false} onChange={() => setWouldReturn(false)} />
                   <span>nein</span>
                 </label>

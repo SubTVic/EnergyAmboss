@@ -311,3 +311,26 @@ input[type='range'] {
     break-after: page;
   }
 }
+
+/* Eingabefelder: volle Breite; Auswahlfelder als schlanke eigene Klasse (PaperCSS stylt sie nur in .form-group) */
+.app-container label {
+  display: block;
+}
+.app-container input:not([type='range']):not([type='radio']):not([type='checkbox']),
+.app-container textarea,
+.app-container select {
+  width: 100%;
+  box-sizing: border-box;
+}
+.app-container label.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  margin: 0;
+}
+.app-container label.choice input {
+  width: auto;
+  margin: 0;
+  accent-color: var(--line);
+}

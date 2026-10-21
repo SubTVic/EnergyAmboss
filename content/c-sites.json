@@ -1,0 +1,100 @@
+[
+  {
+    "id": "W1",
+    "p": { "ausweisung": 0.8, "flaeche": 0.9, "netz": 0.4, "genehmigung": 0.8, "logistik": 0.95, "zuschlag": 0.9 },
+    "reasons": {
+      "netz": "Referenzfläche „Windpark X“: Die Kapazität am Umspannwerk steht nur auf einer mündlichen Auskunft (siehe Prototyp B).",
+      "ausweisung": "Fiktiver Schätzwert; das Gebiet ist in der Vorplanung."
+    },
+    "leasePerYear": 50000,
+    "leaseYears": 5,
+    "survey": 150000,
+    "planning": 600000,
+    "value": 5000000
+  },
+  {
+    "id": "W2",
+    "p": { "ausweisung": 0.55, "flaeche": 0.9, "netz": 0.7, "genehmigung": 0.5, "logistik": 0.9, "zuschlag": 0.85 },
+    "reasons": {
+      "genehmigung": "F7: Nähe zum Schutzgebiet, Brutvögel und Fledermäuse können Auflagen und Abschaltungen auslösen.",
+      "ausweisung": "Schutzgebiet am Rand drückt die Chance auf Ausweisung."
+    },
+    "leasePerYear": 45000,
+    "leaseYears": 5,
+    "survey": 150000,
+    "planning": 650000,
+    "value": 4500000
+  },
+  {
+    "id": "W3",
+    "p": { "ausweisung": 0.7, "flaeche": 0.85, "netz": 0.45, "genehmigung": 0.75, "logistik": 0.9, "zuschlag": 0.85 },
+    "reasons": {
+      "netz": "F4: Grenzgebiet zweier Netzbetreiber, Abstimmung per E-Mail dauerte im Interview fast 9 Monate; die Pacht läuft weiter."
+    },
+    "leasePerYear": 50000,
+    "leaseYears": 6,
+    "survey": 150000,
+    "planning": 600000,
+    "value": 5000000
+  },
+  {
+    "id": "W4",
+    "p": { "ausweisung": 0.75, "flaeche": 0.5, "netz": 0.6, "genehmigung": 0.8, "logistik": 0.9, "zuschlag": 0.85 },
+    "reasons": {
+      "flaeche": "F3: Jedes Flurstück entlang der Trasse muss gesichert sein, ein Nein stoppt sie."
+    },
+    "leasePerYear": 40000,
+    "leaseYears": 5,
+    "survey": 150000,
+    "planning": 600000,
+    "value": 4800000
+  },
+  {
+    "id": "W5",
+    "p": { "ausweisung": 0.6, "flaeche": 0.9, "netz": 0.5, "genehmigung": 0.7, "logistik": 0.95, "zuschlag": 0.85 },
+    "reasons": {
+      "netz": "F8: 110-kV-Leitung vorhanden, aber der Transformator fehlt."
+    },
+    "leasePerYear": 35000,
+    "leaseYears": 5,
+    "survey": 120000,
+    "planning": 550000,
+    "value": 4200000
+  },
+  {
+    "id": "W6",
+    "p": { "ausweisung": 0.7, "flaeche": 0.9, "netz": 0.7, "genehmigung": 0.75, "logistik": 0.5, "zuschlag": 0.85 },
+    "reasons": {
+      "logistik": "F6: Zufahrt nur durch Dorf C; Ampeln drehen, Leitplanken und Schilder entfernen ist genehmigungspflichtig."
+    },
+    "leasePerYear": 50000,
+    "leaseYears": 5,
+    "survey": 150000,
+    "planning": 600000,
+    "value": 5000000
+  },
+  {
+    "id": "W7",
+    "p": { "ausweisung": 0.8, "flaeche": 0.9, "netz": 0.65, "genehmigung": 0.8, "logistik": 0.85, "zuschlag": 0.85 },
+    "reasons": {
+      "ausweisung": "Monokultur-Wald: Die Weißflächenanalyse lässt Monokulturen zu."
+    },
+    "leasePerYear": 30000,
+    "leaseYears": 5,
+    "survey": 150000,
+    "planning": 500000,
+    "value": 4600000
+  },
+  {
+    "id": "W8",
+    "p": { "ausweisung": 0.8, "flaeche": 0.9, "netz": 0.25, "genehmigung": 0.9, "logistik": 0.95, "zuschlag": 0.8 },
+    "reasons": {
+      "netz": "F5: PV-Fläche, 13 km bis zum nächsten Umspannwerk; jeder Kilometer Leitung kostet sechsstellig."
+    },
+    "leasePerYear": 20000,
+    "leaseYears": 5,
+    "survey": 60000,
+    "planning": 250000,
+    "value": 2400000
+  }
+]
