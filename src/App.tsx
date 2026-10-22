@@ -8,6 +8,7 @@ const B = lazy(() => import('./b/BRoutes'));
 const C = lazy(() => import('./c/CRoutes'));
 const D = lazy(() => import('./d/DRoutes'));
 const E = lazy(() => import('./e/ERoutes'));
+const F = lazy(() => import('./f/FRoutes'));
 
 export function App() {
   return (
@@ -20,6 +21,7 @@ export function App() {
           <Route path="c/*" element={<C />} />
           <Route path="d/*" element={<D />} />
           <Route path="e/*" element={<E />} />
+          <Route path="f/*" element={<F />} />
           <Route path="*" element={<p>Seite nicht gefunden.</p>} />
         </Route>
       </Routes>

@@ -39,7 +39,7 @@ export interface PanelRow {
 }
 
 export interface FeedbackInput {
-  prototype: 'a' | 'b' | 'c' | 'd' | 'e';
+  prototype: 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
   tester: string | null;
   realism: number | null;
   aha: string | null;

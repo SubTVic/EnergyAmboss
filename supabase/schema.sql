@@ -41,7 +41,7 @@ create table sct_panel (
 
 create table feedback (
   id bigint generated always as identity primary key,
-  prototype text not null check (prototype in ('a', 'b', 'c', 'd', 'e')),
+  prototype text not null check (prototype in ('a', 'b', 'c', 'd', 'e', 'f')),
   tester text,
   realism int check (realism between 1 and 5),
   aha text,

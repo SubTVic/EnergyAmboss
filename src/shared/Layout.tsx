@@ -4,10 +4,10 @@ import { FeedbackModal, PROTO_NAMES } from './FeedbackModal';
 import { onOpenFeedback } from './feedbackBus';
 import { getTester } from './tester';
 
-type Proto = 'a' | 'b' | 'c' | 'd' | 'e';
+type Proto = 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
 
 function protoFromPath(path: string): Proto | null {
-  const m = /^\/([a-e])(\/|$)/.exec(path);
+  const m = /^\/([a-f])(\/|$)/.exec(path);
   return m ? (m[1] as Proto) : null;
 }
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-type Proto = 'a' | 'b' | 'c' | 'd' | 'e';
+type Proto = 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
 
 // Prototypen können Zusatzdaten (z. B. AAR-Antworten aus D, Punktestand aus A)
 // registrieren, die mit dem Feedback im Feld `payload` gespeichert werden.

@@ -3,7 +3,7 @@ import { getFeedbackPayload } from './feedbackBus';
 import { store } from './store';
 import { getTester, setTester } from './tester';
 
-type Proto = 'a' | 'b' | 'c' | 'd' | 'e';
+type Proto = 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
 
 export const PROTO_NAMES: Record<Proto, string> = {
   a: 'A · Kreuzen',
@@ -11,6 +11,7 @@ export const PROTO_NAMES: Record<Proto, string> = {
   c: 'C · Rechnen',
   d: 'D · Spielen',
   e: 'E · Prognostizieren',
+  f: 'F · Entscheiden',
 };
 
 interface Props {

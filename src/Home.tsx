@@ -44,16 +44,25 @@ const PROTOTYPES = [
     text: 'Wahrscheinlichkeiten zu Ausweisung, Netz und Recht abgeben und kalibrieren.',
     focus: 'Lernen und Daten',
   },
+  {
+    to: '/f',
+    key: 'F',
+    verb: 'Entscheiden',
+    vorbild: 'Kombination aus A–E',
+    text: 'Ein Projektlog mit allen Standortentscheidungen und Begründungen. Vor der nächsten Entscheidung erst selbst verknüpfen, dann sehen, was alles daran hängt und wer davon wissen muss.',
+    focus: 'Lernen im laufenden Projekt',
+  },
 ];
 
 export function Home() {
   return (
     <div className="stack">
       <header className="stack">
-        <h1 style={{ margin: 0 }}>Fünf Prototypen für Projektentwickler</h1>
+        <h1 style={{ margin: 0 }}>Sechs Prototypen für Projektentwickler</h1>
         <p style={{ margin: 0 }}>
-          Fünf Versionen, fünf Vorbilder, fünf Verben, alle auf denselben neun Fällen aus dem Interview. Vergleiche die
-          Form, nicht den Inhalt. Jeder Bereich hat oben rechts einen Feedback-Knopf.
+          Fünf Versionen, fünf Vorbilder, fünf Verben, alle auf denselben neun Fällen aus dem Interview, dazu F als
+          Kombination der besten Teile. Vergleiche die Form, nicht den Inhalt. Jeder Bereich hat oben rechts einen
+          Feedback-Knopf.
         </p>
         <p className="small muted" style={{ margin: 0 }}>
           Tester-Kürzel: <span className="mono">{getTester() || 'noch keins (per ?t=K1 in der URL oder beim ersten Feedback)'}</span>
