@@ -1,16 +1,11 @@
 import { z } from 'zod';
-import type { DecisionLog } from './types';
+import type { StartBoard } from './types';
 
 const text = z.string().min(1);
 
-export const DecisionLogSchema: z.ZodType<DecisionLog> = z.object({
+export const StartBoardSchema: z.ZodType<StartBoard> = z.object({
   project: text,
-  log: z.array(z.object({ id: text, date: z.string().regex(/^\d{2}\/\d{4}$/), who: text, what: text, why: text })).min(1),
-  decision: z.object({
-    date: z.string().regex(/^\d{2}\/\d{4}$/),
-    who: text,
-    question: text,
-    links: z.array(z.object({ id: text, why: text })).min(1),
-    options: z.array(text).min(2),
-  }),
+  depts: z.array(text).min(1),
+  statements: z.array(z.object({ id: text, text, who: text, kbIds: z.array(text) })),
+  links: z.array(z.object({ from: text, to: text, why: z.string() })),
 });

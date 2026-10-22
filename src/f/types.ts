@@ -1,22 +1,24 @@
-/** Ein Eintrag im Projektlog: wann, wer, was, warum. */
-export interface LogEntry {
+/** Eine Aussage, die jemand aus dem Projekt aufschreibt: eine Tatsache, eine Entscheidung, eine Sorge. */
+export interface Statement {
   id: string;
-  date: string; // 'MM/JJJJ'
+  text: string;
   who: string; // Abteilung
-  what: string;
+  kbIds: string[]; // verknüpfte Einträge der Wissensbasis (Wissensknoten)
+}
+
+/** Verknüpfung zwischen zwei Aussagen, mit dem Grund in eigenen Worten. Ohne Richtung. */
+export interface StatementLink {
+  from: string;
+  to: string;
   why: string;
 }
 
-export interface Decision {
-  date: string;
-  who: string;
-  question: string;
-  links: { id: string; why: string }[]; // Log-Einträge, die mit der Entscheidung zusammenhängen
-  options: string[];
+export interface Board {
+  statements: Statement[];
+  links: StatementLink[];
 }
 
-export interface DecisionLog {
+export interface StartBoard extends Board {
   project: string;
-  log: LogEntry[];
-  decision: Decision;
+  depts: string[];
 }

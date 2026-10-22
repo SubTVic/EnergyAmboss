@@ -22,6 +22,8 @@ export interface GraphEdge {
   label?: string;
   dashed?: boolean;
   color?: string;
+  /** Verknüpfung ohne Richtung: keine Pfeilspitze */
+  noArrow?: boolean;
 }
 
 interface Props {
@@ -58,7 +60,7 @@ const STYLE: cytoscape.StylesheetJson = [
       width: 1.5,
       'line-color': 'data(color)',
       'target-arrow-color': 'data(color)',
-      'target-arrow-shape': 'triangle',
+      'target-arrow-shape': 'data(arrow)' as unknown as 'triangle',
       'curve-style': 'bezier',
       'line-style': 'data(lineStyle)' as unknown as 'solid',
       label: 'data(label)',
@@ -100,6 +102,7 @@ export function CytoGraph({ nodes, edges, layout = DEFAULT_LAYOUT, height = 340,
           label: e.label ?? '',
           color: e.color ?? '#888888',
           lineStyle: e.dashed ? 'dashed' : 'solid',
+          arrow: e.noArrow ? 'none' : 'triangle',
         },
       })),
     ],

@@ -1,6 +1,6 @@
 # Fünf Prototypen für Projektentwickler
 
-Eine Web-App mit einer Startseite und fünf klickbaren Prototypen, die dasselbe Konzept in fünf Formen zeigen, plus einem sechsten (F), der zwei davon einfach kombiniert. Alle laufen auf denselben neun Fällen (F1–F9) aus dem Interview, damit man die **Form** vergleicht und nicht den Inhalt.
+Eine Web-App mit einer Startseite und fünf klickbaren Prototypen, die dasselbe Konzept in fünf Formen zeigen, plus einem sechsten (F), einem Werkzeug zum Verknüpfen von Aussagen im laufenden Projekt. Alle laufen auf denselben neun Fällen (F1–F9) aus dem Interview, damit man die **Form** vergleicht und nicht den Inhalt.
 
 | Route | Prototyp | Vorbild | Verb |
 | --- | --- | --- | --- |
@@ -9,7 +9,7 @@ Eine Web-App mit einer Startseite und fünf klickbaren Prototypen, die dasselbe 
 | `/c` | **C** Flächenportfolio und Informationswert | Play-Based Exploration (Öl und Gas) | Rechnen |
 | `/d` | **D** Projekt-Planspiel | Wargaming (Militär) | Spielen |
 | `/e` | **E** Prognose-Liga | Superforecasting | Prognostizieren |
-| `/f` | **F** Entscheiden mit dem Projektlog | Kombination aus A und B | Entscheiden |
+| `/f` | **F** Aussagen verknüpfen | Kombination aus A und B | Verknüpfen |
 
 Bewertet werden soll die **Idee**, nicht die Oberfläche: skizzenhafter Look (PaperCSS-Rahmen und -Schatten, aber mit ruhiger Systemschrift statt der Handschrift-Schriften des Frameworks), Graustufen, Farbe nur mit Bedeutung (grün belegt, orange offen, rot gebrochen, blau bereit), auf jeder Seite das Banner „Prototyp: Inhalte fiktiv“. Alle Zahlen, Wahrscheinlichkeiten und Projektdaten sind fiktiv; nur Kostenarten und Abläufe stammen aus dem Interview. Keine Rechtsberatung.
 
@@ -61,7 +61,7 @@ Alle Inhalte liegen als JSON in `content/`, getrennt vom Code. Das Team ändert 
 | `c-sites.json` | acht fiktive Flächen W1–W8 |
 | `d-actions.json`, `d-events.json` | 10 Aktionskarten, 16 Ereigniskarten |
 | `e-questions.json` | 10 Zukunfts- und 10 Übungsfragen für E |
-| `f-decisions.json` | Projektlog „Windpark X“ (6 Einträge) und eine anstehende Entscheidung für F |
+| `f-start.json` | Startinhalt für F: Abteilungen, vier Aussagen, eine Verknüpfung |
 
 **Inhaltsregel:** Alles stammt aus dem Konzeptdokument. Was darüber hinausgeht oder recherchiert werden muss, trägt `verify: true` und erscheint in der Oberfläche als „ungeprüft“. `npm run verify:list` listet alle Einträge (aktuell 22: die 20 Platzhalter-Fragen von E, `n-abstand-wohnhaus` mit der Interview-Notiz „1000km“ und `n-gemeinde`).
 
@@ -115,21 +115,25 @@ Netlify geht genauso; die Funktion liegt dort unter `netlify/functions` und brau
 
 ## Tests
 
-`npm test` (Vitest, 123 Tests) prüft die Rechenlogik gegen die Testwerte aus dem Umsetzungsplan:
+`npm test` (Vitest, 125 Tests) prüft die Rechenlogik gegen die Testwerte aus dem Umsetzungsplan:
 
 - **A:** SCT-Wertung (Panel `[0, 2, 6, 2, 0]` → 1,0 / 0,33 / 0), Platzhalter-Panel bis 4 und echtes Panel ab 5 Experten, Kaskaden-Punkte, Mischen ohne zwei gleiche Fälle in Folge, Wiederholung, Verbindungs-Radar, Wissenskarte mit Knoten aus anderem Bereich.
 - **B:** `derive` mit den drei Abnahme-Zuständen (Start, Ereignis F3, Rechtsstand § 6b), Lücken-Report, „Worauf ruht das?“, Zyklenerkennung, Rückgängig durch unveränderliche Stände, Import/Export.
 - **C:** alle neun Testwerte (EV 0 / 600.000 / 450.000 / 360.000 / 585.000 / 60.000 €, VoI 600.000 / 360.000 / 0 €), Tornado, Portfolio, Ampel.
 - **D:** gleicher Seed ergibt gleichen Verlauf, Zielwerte mit Begründungen und Kontakten, Pacht und Verzögerung, F1-Kaskade, Nachbesprechung (jede Entscheidung hat mindestens eine Folge mit Ursache), Fuzz mit 200 Zufallsspielen, Siegquoten der Bots, `/api/judge` mit gemocktem Modell.
 - **E:** Brier (0,7 bei Eintritt → 0,09; 0,2 bei Nicht-Eintritt → 0,04; Mittel 0,065), Median (0,2 / 0,5 / 0,9 → 0,5), Kalibrierung, Stichtag.
-- **F:** Verweise im Projektlog, Abgleich gefunden / übersehen / zusätzlich, wer Bescheid wissen muss.
+- **F:** Startinhalt gültig, Aussagen anlegen und löschen (samt Verknüpfungen), Verknüpfen ohne Richtung, ohne Doppelte und Schleifen, Wissensbasis anhängen und wiederfinden.
 
-## Prototyp F: Entscheiden mit dem Projektlog
+## Prototyp F: Aussagen verknüpfen
 
-These: Projektentwickler haben Spaß an ihrem Job, weil sie Wissen aus vielen Fachbereichen verknüpfen. F lässt dieses Verknüpfen beim Menschen. Eine Seite, zwei Schritte:
+These: Projektentwickler haben Spaß an ihrem Job, weil sie Wissen aus vielen Fachbereichen verknüpfen. F schult nicht, sondern ist ein Werkzeug fürs laufende Projekt, in dem Menschen verknüpfen:
 
-1. Eine neue Entscheidung steht an („Stellen wir jetzt den Genehmigungsantrag?“). Darunter das Projektlog: was die Abteilungen bisher entschieden haben, und warum. Man tippt an, was damit zusammenhängt (aus A: erst selbst denken, dann aufdecken).
-2. Auflösen: gefunden, übersehen, jeweils mit dem Zusammenhang, und wer Bescheid wissen muss. Dann entscheiden und begründen; der Eintrag landet im Log (aus B: das Projekt als Kette begründeter Schritte).
+- **Aussagen:** Jede Abteilung schreibt auf, was sie weiß, entschieden hat oder befürchtet.
+- **Verknüpfungen:** Zwei Aussagen verbinden, mit einem „weil …“ in eigenen Worten. Die Verknüpfung erscheint bei beiden Aussagen.
+- **Wissensbasis:** die Wissensknoten aus `content/knowledge.json`, durchsuchbar; an Aussagen anhängbar. Jeder Eintrag zeigt, in welchen Aussagen er verwendet wird.
+- **Karte:** Aussagen, Verknüpfungen und angehängtes Wissen als Graph.
+
+Startinhalt in `content/f-start.json` (vier Aussagen, eine Verknüpfung). Alles Weitere bleibt im Browser (`localStorage`); „Demo zurücksetzen“ stellt den Startinhalt wieder her.
 
 ## Abweichungen vom Umsetzungsplan
 

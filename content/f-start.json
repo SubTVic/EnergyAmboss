@@ -1,0 +1,37 @@
+{
+  "project": "Windpark X",
+  "depts": ["Projektleitung", "Netzplanung", "Flächensicherung", "Naturschutz", "Genehmigung", "Logistik", "Controlling"],
+  "statements": [
+    {
+      "id": "s1",
+      "text": "Wir wollen jetzt den Genehmigungsantrag stellen. Die Planung kostet rund 600.000 €.",
+      "who": "Projektleitung",
+      "kbIds": ["n-bimschg"]
+    },
+    {
+      "id": "s2",
+      "text": "Die Netzzusage für das Umspannwerk Nord ist nur mündlich.",
+      "who": "Netzplanung",
+      "kbIds": ["n-netzzusage"]
+    },
+    {
+      "id": "s3",
+      "text": "Die Pacht läuft 5 Jahre ohne Ausstiegsklausel, 50.000 € pro Jahr.",
+      "who": "Flächensicherung",
+      "kbIds": []
+    },
+    {
+      "id": "s4",
+      "text": "Ein Eigentümer am Kabelweg hat noch nicht unterschrieben.",
+      "who": "Netzplanung",
+      "kbIds": []
+    }
+  ],
+  "links": [
+    {
+      "from": "s1",
+      "to": "s2",
+      "why": "wir ohne feste Zusage eine Genehmigung, aber keinen Anschluss haben könnten."
+    }
+  ]
+}

@@ -47,10 +47,10 @@ const PROTOTYPES = [
   {
     to: '/f',
     key: 'F',
-    verb: 'Entscheiden',
+    verb: 'Verknüpfen',
     vorbild: 'Kombination aus A und B',
-    text: 'Vor einer neuen Entscheidung im Projektlog antippen, was damit zusammenhängt; dann sehen, was du übersehen hast und wer Bescheid wissen muss.',
-    focus: 'Lernen im laufenden Projekt',
+    text: 'Jede Abteilung schreibt Aussagen zum Projekt auf; ihr verknüpft sie mit einem „weil …“ und hängt Wissen aus der Wissensbasis an.',
+    focus: 'Arbeiten im laufenden Projekt',
   },
 ];
 
@@ -61,7 +61,7 @@ export function Home() {
         <h1 style={{ margin: 0 }}>Sechs Prototypen für Projektentwickler</h1>
         <p style={{ margin: 0 }}>
           Fünf Versionen, fünf Vorbilder, fünf Verben, alle auf denselben neun Fällen aus dem Interview, dazu F als
-          einfache Kombination. Vergleiche die Form, nicht den Inhalt. Jeder Bereich hat oben rechts einen
+          Werkzeug zum Verknüpfen. Vergleiche die Form, nicht den Inhalt. Jeder Bereich hat oben rechts einen
           Feedback-Knopf.
         </p>
         <p className="small muted" style={{ margin: 0 }}>

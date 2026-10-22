@@ -1,5 +1,5 @@
-import logJson from '../../content/f-decisions.json';
-import { DecisionLogSchema } from './schema';
-import type { DecisionLog } from './types';
+import startJson from '../../content/f-start.json';
+import { StartBoardSchema } from './schema';
+import type { StartBoard } from './types';
 
-export const decisionLog: DecisionLog = DecisionLogSchema.parse(logJson);
+export const startBoard: StartBoard = StartBoardSchema.parse(startJson);

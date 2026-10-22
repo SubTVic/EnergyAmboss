@@ -11,7 +11,7 @@ export const PROTO_NAMES: Record<Proto, string> = {
   c: 'C · Rechnen',
   d: 'D · Spielen',
   e: 'E · Prognostizieren',
-  f: 'F · Entscheiden',
+  f: 'F · Verknüpfen',
 };
 
 interface Props {
