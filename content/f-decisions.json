@@ -1,182 +1,63 @@
 {
   "project": "Windpark X",
-  "site": "W1",
   "log": [
     {
       "id": "l1",
       "date": "03/2022",
-      "title": "W1 in den Suchraum aufgenommen",
-      "dept": "projektleitung",
-      "domains": ["recht", "natur"],
-      "reasons": [
-        "Weißflächenanalyse: Abstand zu jedem Wohnhaus eingehalten, kein Schutzgebiet.",
-        "Der Wald auf der Fläche ist eine Monokultur, das geht."
-      ],
-      "assumptions": [{ "text": "Fläche liegt auf der Weißfläche", "status": "belegt" }],
-      "knowledgeIds": ["n-weissflaeche", "n-schutzgebiete", "n-wald"]
+      "who": "Projektleitung",
+      "what": "Fläche W1 ausgewählt",
+      "why": "Genug Abstand zu Wohnhäusern, kein Schutzgebiet."
     },
     {
       "id": "l2",
       "date": "05/2022",
-      "title": "Netzabfrage beim Netzbetreiber Nord gestellt",
-      "dept": "netzplanung",
-      "domains": ["netz"],
-      "reasons": [
-        "Netzbedingungen ganz am Anfang abfragen, noch vor der Ausweisung.",
-        "Die Antwort kam nur mündlich: „Am UW Nord ist Kapazität da.“"
-      ],
-      "assumptions": [{ "text": "Kapazität am UW Nord reicht", "status": "offen", "note": "nur mündliche Auskunft, kein Dokument" }],
-      "knowledgeIds": ["n-netzabfrage", "n-kapazitaet"]
+      "who": "Netzplanung",
+      "what": "Beim Netzbetreiber nach freier Kapazität gefragt",
+      "why": "Netz früh prüfen. Die Antwort kam nur mündlich: „Kapazität ist da.“"
     },
     {
       "id": "l3",
       "date": "08/2022",
-      "title": "Pachtverträge für W1 unterschrieben, vor der Ausweisung",
-      "dept": "flaechensicherung",
-      "domains": ["vertraege", "finanzen"],
-      "reasons": [
-        "Ein Konkurrent spricht schon mit den Eigentümern; wer wartet, verliert die Fläche.",
-        "Pacht 50.000 € pro Jahr, 5 Jahre. Eine Rücktrittsklausel bei negativer Netzzusage war mit den Eigentümern nicht zu machen."
-      ],
-      "assumptions": [{ "text": "Fläche gesichert", "status": "belegt" }],
-      "knowledgeIds": ["n-pachtvertrag", "n-konkurrent", "n-ruecktritt"]
+      "who": "Flächensicherung",
+      "what": "Pacht unterschrieben: 50.000 € pro Jahr, 5 Jahre",
+      "why": "Sonst schnappt sich die Konkurrenz die Fläche. Eine Ausstiegsklausel für den Fall „kein Netz“ wollte der Eigentümer nicht."
     },
     {
       "id": "l4",
-      "date": "11/2023",
-      "title": "Ausweisung abgewartet: W1 ist Windgebiet",
-      "dept": "projektleitung",
-      "domains": ["recht"],
-      "reasons": ["Das Landratsamt nimmt den Antrag erst nach der Ausweisung an."],
-      "assumptions": [{ "text": "W1 ist ausgewiesen", "status": "belegt" }],
-      "knowledgeIds": ["n-ausweisung"]
+      "date": "02/2024",
+      "who": "Naturschutz",
+      "what": "Naturschutzgutachten abgeschlossen (150.000 €)",
+      "why": "Keine Ausschlussgründe gefunden."
     },
     {
       "id": "l5",
-      "date": "02/2024",
-      "title": "Naturschutzgutachten beauftragt (150.000 €)",
-      "dept": "naturschutz",
-      "domains": ["natur", "finanzen"],
-      "reasons": [
-        "Das Ergebnis kommt erst nach einer Brutperiode, also früh starten.",
-        "Ergebnis 03/2025: keine Ausschlussgründe, aber Fledermaus-Abschaltung empfohlen (3–5 % Ertrag)."
-      ],
-      "assumptions": [{ "text": "Artenschutz geklärt", "status": "belegt" }],
-      "knowledgeIds": ["n-gutachten", "n-brutperiode", "n-betriebsauflagen"]
+      "date": "09/2025",
+      "who": "Logistik",
+      "what": "Zufahrt für die Schwertransporte geprüft",
+      "why": "Die Flügel passen über die Kreisstraße."
     },
     {
       "id": "l6",
       "date": "06/2026",
-      "title": "Kabeltrasse zum UW Nord geplant",
-      "dept": "netzplanung",
-      "domains": ["netz", "vertraege"],
-      "reasons": [
-        "Kürzester Weg zum Umspannwerk, rund 4 km.",
-        "Ein Eigentümer zögert noch: „falls wir selber mal bauen wollen“."
-      ],
-      "assumptions": [{ "text": "Alle Flurstücke der Trasse sicherbar", "status": "offen", "note": "ein Eigentümer hat noch nicht unterschrieben" }],
-      "knowledgeIds": ["n-trasse", "n-eigentuemer"]
+      "who": "Netzplanung",
+      "what": "Kabelweg zum Umspannwerk geplant",
+      "why": "Kürzester Weg. Ein Grundstückseigentümer hat noch nicht unterschrieben."
     }
   ],
-  "decisions": [
-    {
-      "id": "d1",
-      "date": "10/2026",
-      "question": "Genehmigungsantrag für W1 jetzt stellen?",
-      "situation": "Ausweisung und Gutachten liegen vor. Die Planung bis zur Genehmigung kostet rund 600.000 €, beteiligt sind rund 25 Ämter. Die Geschäftsführung will heute eine Entscheidung.",
-      "dept": "projektleitung",
-      "domains": ["genehmigung", "netz", "finanzen", "vertraege"],
-      "logLinks": [
-        { "id": "l2", "why": "Die Kapazität am UW Nord steht nur auf einer mündlichen Auskunft. Ein Antrag jetzt ruht auf dieser Lücke; genau so entstand F1: Genehmigung da, Anschluss weg." },
-        { "id": "l6", "why": "Ohne Trasse kein Anschluss. Ein Eigentümer hat noch nicht unterschrieben, auch diese Annahme ist offen." },
-        { "id": "l3", "why": "Die Pacht läuft ohne Rücktrittsklausel weiter, egal wie du entscheidest. Jedes halbe Jahr Warten kostet 25.000 €." },
-        { "id": "l4", "why": "Erst mit der Ausweisung nimmt das Landratsamt den Antrag an. Diese Voraussetzung ist erfüllt." },
-        { "id": "l5", "why": "Das Gutachten gehört zum Antrag. Die empfohlene Fledermaus-Abschaltung kostet 3–5 % Ertrag und gehört in die Wirtschaftlichkeit." }
-      ],
-      "knowledgeLinks": [
-        { "id": "n-netzzusage", "why": "Wer ohne belastbare Zusage genehmigt, riskiert den teuersten Fehler aus dem Interview." },
-        { "id": "n-netzbetreiber", "why": "Wahrscheinlicher Zug: Er beantwortet die Anfrage nach seinen eigenen Annahmen. Ob die mündliche Auskunft hält, weißt du erst mit einer schriftlichen Zusage." },
-        { "id": "n-bimschg", "why": "Rund 25 Ämter sind beteiligt; die 600.000 € Planung sind weg, wenn der Anschluss später scheitert." },
-        { "id": "n-eeg", "why": "Mit der Genehmigung geht es in die Ausschreibung. Ein Zuschlag ohne Anschluss bringt keinen Ertrag." },
-        { "id": "n-ruecktritt", "why": "Die fehlende Klausel aus 2022 macht Warten teurer: Die Restpacht entfällt auch bei negativer Netzzusage nicht." }
-      ],
-      "options": [
-        {
-          "id": "jetzt",
-          "label": "Antrag jetzt stellen",
-          "restsOn": ["l2", "l6"],
-          "outlook": "Der Antrag läuft, die Ämter arbeiten. Ein Jahr später schreibt der Netzbetreiber: Am UW Nord ist die Kapazität vergeben. Ob das passiert, hing an der offenen Annahme aus 05/2022."
-        },
-        {
-          "id": "erst-zusage",
-          "label": "Erst eine verbindliche Netzzusage einholen, dann den Antrag stellen",
-          "restsOn": ["l6"],
-          "outlook": "Sechs Monate Warten, die Pacht läuft weiter. Dafür weißt du vor den 600.000 € Planung, ob der Anschluss steht. Offen bleibt die Trasse."
-        },
-        {
-          "id": "aufgeben",
-          "label": "W1 aufgeben",
-          "restsOn": [],
-          "outlook": "Die Pacht läuft ohne Rücktrittsklausel trotzdem weiter, das Gutachten ist bezahlt. Bereits ausgegebenes Geld zählt für die Entscheidung nicht mehr, es ist in jeder Option weg."
-        }
-      ],
-      "estimate": {
-        "question": "Wie wahrscheinlich gibt der Netzbetreiber am UW Nord eine verbindliche Zusage?",
-        "value": 5000000,
-        "pRest": 0.5,
-        "planning": 600000,
-        "waitCost": 145000,
-        "waitNote": "6 Monate Warten: Pacht 25.000 € plus Verzögerung (fiktiv 20.000 € je Monat)",
-        "optionIds": { "now": "jetzt", "wait": "erst-zusage", "giveUp": "aufgeben" }
-      }
-    },
-    {
-      "id": "d2",
-      "date": "02/2027",
-      "question": "Der Eigentümer auf der Trasse sagt endgültig Nein. Wie geht es weiter?",
-      "situation": "Der zögernde Eigentümer unterschreibt nicht, „falls wir selber mal bauen wollen“. Jedes Flurstück entlang des Kabels muss gesichert sein, ein einziges Nein stoppt die Trasse (F3).",
-      "dept": "projektleitung",
-      "domains": ["vertraege", "netz", "finanzen"],
-      "breaks": ["l6"],
-      "logLinks": [
-        { "id": "l6", "why": "Die offene Annahme aus 06/2026 ist jetzt widerlegt: Die Trasse zum UW Nord ist gestoppt." },
-        { "id": "l2", "why": "Jede Alternative hängt am Netz. Für UW Nord gibt es bisher nur die mündliche Auskunft, für einen anderen Anschlusspunkt noch gar keine." },
-        { "id": "d1", "why": "Deine letzte Entscheidung zu Antrag und Netzzusage hängt am Anschlusspunkt UW Nord. Wechselst du den Anschlusspunkt, musst du sie neu bewerten." },
-        { "id": "l3", "why": "Die Pacht läuft ohne Rücktrittsklausel weiter. Jede Verzögerung an der Trasse kostet Geld." }
-      ],
-      "knowledgeLinks": [
-        { "id": "n-eigentuemer", "why": "Wahrscheinlicher Zug: Er hält sich die Fläche offen, weil er selbst bauen will. Mehr Pacht allein überzeugt ihn vermutlich nicht." },
-        { "id": "n-leitungskosten", "why": "Jeder Kilometer Umweg kostet sechsstellig." },
-        { "id": "n-gemeinsamer-anschluss", "why": "Leitungskosten mit einer Nachbaranlage teilen; kein Selbstläufer." },
-        { "id": "n-einspeisung100", "why": "Rechnet der Netzbetreiber mit 100 % Einspeisung, scheitert die Überbauung beim gemeinsamen Anschluss." },
-        { "id": "n-grenzgebiet", "why": "Ein anderer Anschlusspunkt kann einen zweiten Netzbetreiber bedeuten; im Interview dauerte die Abstimmung fast 9 Monate (F4)." }
-      ],
-      "options": [
-        {
-          "id": "verhandeln",
-          "label": "Noch einmal mit dem Eigentümer verhandeln",
-          "restsOn": ["l6"],
-          "outlook": "Das Gespräch dauert, die Pacht läuft. Ohne ein Angebot, das seinen eigenen Bauplänen etwas entgegensetzt, bleibt es beim Nein."
-        },
-        {
-          "id": "umweg",
-          "label": "Andere Trasse zum UW Nord, um das Flurstück herum",
-          "restsOn": ["l2"],
-          "outlook": "Der Umweg macht die Leitung länger, jeder Kilometer kostet sechsstellig. Neue Flurstücke, neue Eigentümer, und die Kapazität am UW Nord ist weiter nur mündlich zugesagt."
-        },
-        {
-          "id": "uw-sued",
-          "label": "Anschluss am UW Süd",
-          "restsOn": [],
-          "outlook": "Neue Netzabfrage bei einem anderen Netzbetreiber, die Auskunft für UW Nord gilt dort nicht. Stimmen sich zwei Netzbetreiber ab, kann das Monate dauern."
-        },
-        {
-          "id": "gemeinsam",
-          "label": "Gemeinsamer Anschluss mit einer Nachbaranlage",
-          "restsOn": ["l2"],
-          "outlook": "Die Leitungskosten ließen sich teilen. Rechnet der Netzbetreiber aber mit 100 % Einspeisung beider Anlagen, reicht die Kapazität nicht."
-        }
-      ]
-    }
-  ]
+  "decision": {
+    "date": "10/2026",
+    "who": "Projektleitung",
+    "question": "Stellen wir jetzt den Genehmigungsantrag? Er kostet rund 600.000 €.",
+    "links": [
+      { "id": "l2", "why": "Die Netzzusage ist nur mündlich. Hält sie nicht, hast du eine Genehmigung, aber keinen Anschluss. Genau das hat im Interview einen siebenstelligen Verlust gekostet." },
+      { "id": "l3", "why": "Ohne Ausstiegsklausel läuft die Pacht weiter, egal ob das Projekt klappt." },
+      { "id": "l4", "why": "Das Gutachten liegt vor und gehört in den Antrag. Hier ist alles in Ordnung." },
+      { "id": "l6", "why": "Ohne Kabelweg kein Anschluss. Ein Eigentümer fehlt noch, und ein einziges Nein stoppt die Leitung." }
+    ],
+    "options": [
+      "Ja, jetzt stellen",
+      "Erst eine schriftliche Netzzusage holen, dann stellen",
+      "Fläche aufgeben"
+    ]
+  }
 }
