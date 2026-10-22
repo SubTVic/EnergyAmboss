@@ -62,7 +62,7 @@ Alle Inhalte liegen als JSON in `content/`, mit zod geprüft, wie im Rest des Re
 
 ## Technik
 
-Baut auf dem bestehenden Repo auf (Vite, React, TypeScript, zod, Vitest). Neue Route `/wand`, eigener Ordner `src/wand/`, eigene Serverfunktion `api/wall-read.ts` nach dem Muster von `api/judge.ts`.
+Baut auf dem bestehenden Repo auf (Vite, React, TypeScript, zod, Vitest). Route `/wand` (Startseite leitet dorthin), Ordner `src/wand/`, Serverfunktion `api/wall-read.ts` mit dem Kern in `api/_wallRead.ts`. Der Vite-Dev-Server bedient `/api/wall-read` selbst, `npm run dev` reicht.
 
 ### Ablauf
 
@@ -77,10 +77,10 @@ Baut auf dem bestehenden Repo auf (Vite, React, TypeScript, zod, Vitest). Neue R
 
 ### Modellaufruf
 
-- Anthropic Messages API mit Bild-Eingabe. Modell über `WALL_MODEL` einstellbar. Vor dem Schreiben des Codes den `claude-api`-Skill laden und Modell-ID, Bild-Eingabe und Tool-Aufruf dort nachsehen.
+- Anthropic Messages API mit Bild-Eingabe und Structured Outputs (`client.beta.messages.parse` mit zod-Schema). Modell über `WALL_MODEL` einstellbar, Standard `claude-opus-5-5`, mit serverseitigem Fallback bei Ablehnung (`fallbacks: "default"`).
 - Der Schlüssel liegt nur serverseitig in `ANTHROPIC_API_KEY`, niemals mit `VITE_`-Präfix.
 - Systemprompt: nur Verweise aus den mitgeschickten Katalogen; unleserlicher Text wird als `?` markiert, nicht geraten.
-- Zeitlimit 20 Sekunden, keine Wiederholungen. Bei Fehlern zeigt die App „Nicht erkannt, bitte erneut erfassen“.
+- Zeitlimit 30 Sekunden, keine Wiederholungen. Bei Fehlern zeigt die App „Nicht erkannt, bitte erneut erfassen“.
 
 ### Demo-Modus (Pflicht)
 
@@ -96,10 +96,8 @@ Lesbar aus 3 m Entfernung: Grundschrift mindestens 28 px, wenig Text, hoher Kont
 
 - **Oben:** schmale Leiste mit Projektname, Status („bereit“, „lese …“, „erkannt: 3 Post-its“) und Taste zum Erfassen.
 - **Links (ein Drittel):** Live-Kamerabild mit nummerierten Rahmen um die erkannten Post-its.
-- **Rechts (zwei Drittel):** eine Karte pro Post-it in derselben Nummerierung. Jede Karte zeigt:
-  - den gelesenen Text,
-  - darunter die Verweise, getrennt nach „Gesetz“ und „Früherer Schritt“, je mit einem Satz Begründung,
-  - die Verbindungen zu anderen Post-its („hängt zusammen mit ②, weil …“).
+- **Links unter dem Kamerabild:** die Zusammenhänge zwischen den Post-its („② ↔ ③ …“), jeder nur einmal.
+- **Rechts:** eine Karte pro Post-it in derselben Nummerierung, mit dem gelesenen Text und den Verweisen, getrennt nach „Gesetz“ und „Früherer Schritt“, je mit einem Satz Begründung.
 - Neue Verweise erscheinen mit einer kurzen Einblend-Animation, damit man sieht, was sich geändert hat.
 
 ## Meilensteine
@@ -116,7 +114,7 @@ Jeder Meilenstein endet mit grünem `npm test` und `npm run build` und einem Com
 
 ```bash
 npm install
-npx vercel dev          # App und /api zusammen, http://localhost:3000/wand
+npm run dev             # http://localhost:5173 (leitet auf /wand)
 ```
 
 Ohne Schlüssel funktioniert nur der Demo-Modus. Mit Schlüssel: `.env.local` mit `ANTHROPIC_API_KEY=…` anlegen.

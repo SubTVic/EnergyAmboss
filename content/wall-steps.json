@@ -1,0 +1,26 @@
+[
+  {
+    "id": "s-windgebiet",
+    "date": "03/2025",
+    "who": "Projektleitung",
+    "text": "Flächenauswahl: Die Fläche liegt in einem ausgewiesenen Windgebiet."
+  },
+  {
+    "id": "s-pacht",
+    "date": "06/2025",
+    "who": "Flächensicherung",
+    "text": "Pachtangebote für andere Flächen in der Region lagen zwischen 15.000 und 25.000 € pro Jahr."
+  },
+  {
+    "id": "s-netzanfrage",
+    "date": "09/2025",
+    "who": "Netzplanung",
+    "text": "Netzanfrage beim Verteilnetzbetreiber: Der nächste mögliche Verknüpfungspunkt ist ein Umspannwerk in rund 12 km Entfernung."
+  },
+  {
+    "id": "s-trasse",
+    "date": "11/2025",
+    "who": "Netzplanung",
+    "text": "Trassenplanung: Die bisher geplante Kabeltrasse verläuft quer zur Bewirtschaftungsrichtung der Felder."
+  }
+]

@@ -1,3 +1,28 @@
+# Projektwand für Projektentwickler
+
+Nach einem Gespräch mit einem Landwirt klebt man 2–3 handgeschriebene Post-its an die Wand. Eine Webcam liest sie, und der Fernseher daneben zeigt zu jedem Post-it passende Gesetze und frühere Projektschritte, dazu die Zusammenhänge zwischen den Post-its. Plan: [docs/03-umsetzungsplan-wand.md](docs/03-umsetzungsplan-wand.md).
+
+```bash
+npm install
+cp .env.example .env.local   # ANTHROPIC_API_KEY eintragen (nur für die echte Erkennung)
+npm run dev                  # http://localhost:5173 → /wand, Browser im Vollbild (F11) auf dem Fernseher
+```
+
+| Taste | Wirkung |
+| --- | --- |
+| Leertaste oder Bild-ab (Presenter) | Wand fotografieren und lesen |
+| 1, 2, 3 | Demo: die Beispiel-Post-its nacheinander, ohne Kamera und ohne Schlüssel |
+| 0 | Anzeige leeren |
+| s | letztes Kamerabild als Datei speichern |
+
+- Inhalte: `content/wall-laws.json` (Gesetze, alle als „ungeprüft“ markiert, vor Nutzung juristisch prüfen), `content/wall-steps.json` (erfundene frühere Projektschritte), `content/wall-demo.json` (Demo).
+- Die App verweist nur auf Einträge aus diesen Katalogen; was das Modell sonst nennt, wird verworfen (`src/wand/logic.ts`).
+- Das Kamerabild geht nur an die Anthropic API und wird nicht gespeichert. Keine Personen ins Bild.
+
+Die älteren Prototypen A–F liegen noch unter `/start`.
+
+---
+
 # Fünf Prototypen für Projektentwickler
 
 Eine Web-App mit einer Startseite und fünf klickbaren Prototypen, die dasselbe Konzept in fünf Formen zeigen, plus einem sechsten (F), einem Werkzeug zum Verknüpfen von Aussagen im laufenden Projekt. Alle laufen auf denselben neun Fällen (F1–F9) aus dem Interview, damit man die **Form** vergleicht und nicht den Inhalt.

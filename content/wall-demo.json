@@ -1,0 +1,20 @@
+{
+  "notes": [
+    { "id": "n1", "text": "Grundsätzlich Interesse an Pachtvertrag, 20.000 €" },
+    { "id": "n2", "text": "Bedingung: Leitung entlang der Feldrichtung verlegen" },
+    { "id": "n3", "text": "Kein Umspannwerk zwischen 380- und 110-kV-Leitung in der Nähe" }
+  ],
+  "references": [
+    { "noteId": "n1", "targetId": "bgb-581", "why": "Aus dem Interesse wird ein Pachtvertrag." },
+    { "noteId": "n1", "targetId": "s-pacht", "why": "20.000 € liegen in der Spanne der bisherigen Angebote." },
+    { "noteId": "n1", "targetId": "s-windgebiet", "why": "Die Fläche ist bereits als Windgebiet ausgewiesen." },
+    { "noteId": "n2", "targetId": "bgb-1090", "why": "Die Leitung über das Feld muss als Recht gesichert werden." },
+    { "noteId": "n2", "targetId": "s-trasse", "why": "Die geplante Trasse verläuft quer zur Feldrichtung und passt nicht zur Bedingung." },
+    { "noteId": "n3", "targetId": "eeg-8", "why": "Bestimmt, an welchem Verknüpfungspunkt angeschlossen wird." },
+    { "noteId": "n3", "targetId": "s-netzanfrage", "why": "Der nächste mögliche Verknüpfungspunkt liegt rund 12 km entfernt." }
+  ],
+  "noteLinks": [
+    { "a": "n2", "b": "n3", "why": "Ohne Umspannwerk in der Nähe wird die Leitung lang, entlang der Feldrichtung noch länger." },
+    { "a": "n1", "b": "n3", "why": "Die Pacht lohnt sich nur, wenn ein Netzanschluss erreichbar ist." }
+  ]
+}

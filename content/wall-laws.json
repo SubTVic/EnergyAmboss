@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bgb-581",
+    "title": "§§ 581 ff. BGB (Pachtvertrag)",
+    "summary": "Regeln den Pachtvertrag: Ein Grundstück wird zur Nutzung überlassen, dafür wird Pacht gezahlt.",
+    "verify": true
+  },
+  {
+    "id": "bgb-1090",
+    "title": "§ 1090 BGB (beschränkte persönliche Dienstbarkeit)",
+    "summary": "Kann das Recht sichern, ein fremdes Grundstück zu nutzen, etwa für eine Leitung. Wird im Grundbuch eingetragen.",
+    "verify": true
+  },
+  {
+    "id": "eeg-8",
+    "title": "§ 8 EEG (Netzanschluss)",
+    "summary": "Regelt den Netzanschluss von Erneuerbare-Energien-Anlagen, unter anderem an welchem Verknüpfungspunkt angeschlossen wird.",
+    "verify": true
+  },
+  {
+    "id": "enwg-17",
+    "title": "§ 17 EnWG (Netzanschluss)",
+    "summary": "Regelt den allgemeinen Anspruch auf Anschluss an das Energieversorgungsnetz.",
+    "verify": true
+  }
+]

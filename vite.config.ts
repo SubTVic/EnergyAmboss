@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitest/config';
-import type { Plugin } from 'vite';
+import { loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
 /**
@@ -17,10 +17,37 @@ const stripGoogleFonts = (): Plugin => ({
   },
 });
 
-export default defineConfig({
-  plugins: [stripGoogleFonts(), react()],
+/** Bedient POST /api/wall-read auch im Dev-Server, damit `npm run dev` ohne Vercel reicht (Schlüssel aus .env.local). */
+const wallReadApi = (env: Record<string, string>): Plugin => ({
+  name: 'wall-read-api',
+  configureServer(server) {
+    server.middlewares.use('/api/wall-read', async (req, res) => {
+      if (req.method !== 'POST') {
+        res.statusCode = 405;
+        res.end();
+        return;
+      }
+      const chunks: Buffer[] = [];
+      for await (const chunk of req) chunks.push(chunk as Buffer);
+      let body: unknown = null;
+      try {
+        body = JSON.parse(Buffer.concat(chunks).toString('utf8'));
+      } catch {
+        /* bleibt null, wird als bad_request beantwortet */
+      }
+      const { handleWallRead } = await server.ssrLoadModule('/api/_wallRead.ts');
+      const result = await handleWallRead(body, { ...process.env, ...env });
+      res.statusCode = result.status;
+      res.setHeader('Content-Type', 'application/json');
+      res.end(JSON.stringify(result.body));
+    });
+  },
+});
+
+export default defineConfig(({ mode }) => ({
+  plugins: [stripGoogleFonts(), react(), wallReadApi(loadEnv(mode, process.cwd(), ''))],
   test: {
     environment: 'node',
     include: ['src/**/*.test.ts'],
   },
-});
+}));

@@ -1,0 +1,206 @@
+/* Projektwand: für den Fernseher, lesbar aus 3 m. Eigene Stile, unabhängig vom Rest der App. */
+.wall {
+  --ink: #111;
+  --muted: #555;
+  --paper: #fafaf7;
+  --line: #222;
+  --law: #1d4ed8;
+  --step: #7c3aed;
+  --ok: #15803d;
+  --warn: #b45309;
+  --bad: #b91c1c;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 23px;
+  line-height: 1.25;
+}
+.wall * {
+  box-sizing: border-box;
+}
+.wall-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 14px 28px;
+  border-bottom: 3px solid var(--line);
+  font-size: 26px;
+}
+.wall-spacer {
+  flex: 1;
+}
+.wall-status.busy {
+  color: var(--warn);
+}
+.wall-status.ok {
+  color: var(--ok);
+}
+.wall-status.error {
+  color: var(--bad);
+}
+.wall-tag,
+.wall-unverified {
+  font-size: 0.7em;
+  padding: 2px 10px;
+  border: 2px dashed currentColor;
+  border-radius: 999px;
+  color: var(--warn);
+  margin-left: 10px;
+  white-space: nowrap;
+}
+.wall .wall-button,
+.wall select {
+  font: inherit;
+  font-size: 22px;
+  padding: 6px 16px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  box-shadow: none;
+}
+.wall-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr);
+  gap: 28px;
+  padding: 18px 28px;
+  min-height: 0;
+}
+.wall-camera {
+  min-height: 0;
+  overflow-y: auto;
+}
+.wall-video {
+  position: relative;
+  border: 3px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ddd;
+}
+.wall-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.wall-box {
+  position: absolute;
+  border: 4px solid var(--law);
+  border-radius: 6px;
+}
+.wall-box span {
+  position: absolute;
+  top: -6px;
+  left: 4px;
+  font-size: 36px;
+  color: var(--law);
+  font-weight: 700;
+  text-shadow: 0 0 4px #fff;
+}
+.wall-hint,
+.wall-empty {
+  color: var(--muted);
+}
+.wall-notes {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+}
+.wall-card {
+  border: 3px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 20px;
+  background: #fff;
+  animation: wall-in 0.5s ease-out;
+}
+.wall-card h2 {
+  margin: 0 0 6px;
+  font-size: 30px;
+  line-height: 1.2;
+}
+.wall-num {
+  color: var(--law);
+}
+.wall-ref {
+  border-left: 6px solid var(--line);
+  padding: 2px 0 2px 14px;
+  margin-top: 6px;
+  animation: wall-in 0.6s ease-out;
+}
+.wall-ref.law {
+  border-color: var(--law);
+}
+.wall-ref.step {
+  border-color: var(--step);
+}
+.wall-kind {
+  font-size: 0.7em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 8px;
+}
+.wall-ref.law .wall-kind {
+  color: var(--law);
+}
+.wall-ref.step .wall-kind {
+  color: var(--step);
+}
+.wall-why {
+  color: var(--muted);
+  font-size: 0.85em;
+}
+.wall-links h3 {
+  margin: 18px 0 4px;
+  font-size: 26px;
+}
+.wall-link {
+  margin-top: 8px;
+  font-weight: 600;
+  animation: wall-in 0.6s ease-out;
+}
+.wall-foot {
+  padding: 8px 28px;
+  font-size: 18px;
+  color: var(--muted);
+  border-top: 2px solid #ccc;
+}
+@keyframes wall-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wall-card,
+  .wall-ref,
+  .wall-link {
+    animation: none;
+  }
+}
+@media (max-width: 900px) {
+  .wall {
+    font-size: 18px;
+    position: static;
+    min-height: 100vh;
+  }
+  .wall-main {
+    grid-template-columns: 1fr;
+  }
+  .wall-card h2 {
+    font-size: 22px;
+  }
+}
